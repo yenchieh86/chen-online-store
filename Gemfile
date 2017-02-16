@@ -15,8 +15,15 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
+gem 'pundit'
 gem "twitter-bootstrap-rails"
 gem 'bootstrap_form'
+gem 'carrierwave', '~> 1.0'
+gem 'delayed_job_active_record'
+gem 'faker', '~> 1.7'
+gem 'kaminari'
+gem 'ransack'
+gem "figaro"
 
 group :development, :test do
   gem 'byebug', platform: :mri

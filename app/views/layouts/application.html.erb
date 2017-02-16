@@ -9,6 +9,22 @@
   </head>
 
   <body>
-    <%= yield %>
+    <% if alert %>
+      <div class='container'>
+        <p><%= alert %></p>
+      </div>
+    <% elsif notice %>
+      <div class='container'>
+        <p><%= notice %></p>
+      </div>
+    <% end %>
+    
+    <div class='container'>
+      <%= yield %>
+    </div>
+    
+    <div class='container'>
+      <%= debug(params) if Rails.env.development? %>
+    </div>
   </body>
 </html>
