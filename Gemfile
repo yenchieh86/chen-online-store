@@ -23,7 +23,9 @@ gem 'delayed_job_active_record'
 gem 'faker', '~> 1.7'
 gem 'kaminari'
 gem 'ransack'
-gem "figaro"
+gem 'figaro'
+gem 'friendly_id'
+gem 'gravatar_image_tag'
 
 group :development, :test do
   gem 'byebug', platform: :mri
