@@ -6,3 +6,57 @@
  *= require_tree .
  *= require rails_bootstrap_forms
 */
+
+header{
+  background-color: rgb(148,148,148);
+  
+  .logo {
+    float: left;
+  }
+  
+  .logo_img {
+    width: 57%;
+    padding: 15px;
+    
+    &:hover {
+      background-color: white;
+    }
+  }
+  
+  .nav.navbar-nav {
+    float: right;
+    
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+    
+    a {
+      color: white;
+      
+      &:hover {
+        color: black;
+      }
+    }
+  }
+}
+
+.user_showpage{
+  
+  
+  .userinfo {
+    text-align: center;
+    margin-top: 20px;
+    
+    img {
+      width: 20%;
+      height: auto;
+    }
+    
+    
+  }
+}
+  

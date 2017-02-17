@@ -9,21 +9,43 @@
   </head>
 
   <body>
-    <% if alert %>
-      <div class='container'>
+    <header>
+      <div class='container-fluid'>
+        <div class='row'>
+          <div class='logo'>
+            <%= link_to image_tag("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTgzAsDTTWOlsX7cKfSVy9r6skIHikbx3V7eZxYg4aGe5wCmBUY", class: 'logo_img'), '#' %>
+          </div>
+          <nav>
+            <ul class="nav navbar-nav">
+                <% if current_user %>
+                  <%= link_to gravatar_image_tag(current_user.email), current_user %>
+                <% end %>
+              <li><%= link_to "Home", root_path %></li>
+              <li><%= link_to "Help", '#' %></li>
+              <li>
+                <% if current_user %>
+                  <%= link_to "Log out", '#' %>
+                <% else %>
+                  <%= link_to 'Sign in', '#' %>
+                  <%= link_to 'Sign up', '#' %>
+                <% end %>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <div class='container-fluid'>
+      <% if alert %>
         <p><%= alert %></p>
-      </div>
-    <% elsif notice %>
-      <div class='container'>
+      <% elsif notice %>
         <p><%= notice %></p>
-      </div>
-    <% end %>
-    
-    <div class='container'>
-      <%= yield %>
+      <% end %>
     </div>
     
-    <div class='container'>
+      <%= yield %>
+    
+    <div class='container-fluid'>
       <%= debug(params) if Rails.env.development? %>
     </div>
   </body>
