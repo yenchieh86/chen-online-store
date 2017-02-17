@@ -7,4 +7,7 @@ class User < ApplicationRecord
          
   extend FriendlyId
   friendly_id :username, use: :slugged
+  
+  enum role: [:standard, :seller, :admin]
+  
 end

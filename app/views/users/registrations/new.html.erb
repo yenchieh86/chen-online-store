@@ -40,6 +40,11 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
+  
+  <div class="field">
+    <%= f.check_box("role", {}, "seller", "standard") %>
+    <%= f.label(:role, "Are you selling stuff?") %>
+  </div>
 
   <div class="actions">
     <%= f.submit "Sign up" %>

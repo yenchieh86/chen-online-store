@@ -15,7 +15,7 @@ header{
   }
   
   .logo_img {
-    width: 50%;
+    width: 30%;
     padding: 15px;
     
     &:hover {
@@ -26,12 +26,14 @@ header{
   .nav.navbar-nav {
     float: right;
     
+    .nav_gravatar {
+      padding: 15px 0px;
+      text-align: center;
+    }
+    
     img {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 8px;
-      margin-bottom: 8px;
+      width: 58%;
+      height: 58%;
     }
     
     a {
@@ -46,15 +48,16 @@ header{
     .help,
     .logout,
     .signin,
-    .signout{
-      padding: 54px 15px;
+    .signup {
+      padding-top: 28px;
+      padding-bottom: 28px;
     }
   }
 }
 
+
+
 .user_showpage{
-  
-  
   .userinfo {
     text-align: center;
     margin-top: 20px;
@@ -67,4 +70,23 @@ header{
     
   }
 }
+
+footer {
+  background-color: rgb(148,148,148);
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
   
+  .nav.navbar-nav {
+    float: right;
+    
+    a {
+      color: white;
+      
+      &:hover {
+        color: black;
+        background-color: white;
+      }
+    }
+  }
+}

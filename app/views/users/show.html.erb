@@ -6,6 +6,9 @@
                 <h3>Name: <%= full_name(current_user) %></h3>
                 <h3>Email: <%= current_user.email %></h3>
                 <h3>Birthday: <%= current_user.birthday %></h3>
+                <h3>Account status: <%= current_user.role %></h3>
+                <%= link_to 'Set up account', edit_user_registration_path, class: 'btn btn-info' %>
+                <%= link_to "Cancel account", user_registration_path, method: :delete, class: 'btn btn-danger' %>
             </div>
         </div>
         <div>
