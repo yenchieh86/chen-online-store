@@ -15,7 +15,7 @@ header{
   }
   
   .logo_img {
-    width: 57%;
+    width: 50%;
     padding: 15px;
     
     &:hover {
@@ -40,6 +40,14 @@ header{
       &:hover {
         color: black;
       }
+    }
+    
+    .home,
+    .help,
+    .logout,
+    .signin,
+    .signout{
+      padding: 54px 15px;
     }
   }
 }

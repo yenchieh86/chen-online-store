@@ -13,23 +13,21 @@
       <div class='container-fluid'>
         <div class='row'>
           <div class='logo'>
-            <%= link_to image_tag("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTgzAsDTTWOlsX7cKfSVy9r6skIHikbx3V7eZxYg4aGe5wCmBUY", class: 'logo_img'), '#' %>
+            <%= link_to image_tag("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTgzAsDTTWOlsX7cKfSVy9r6skIHikbx3V7eZxYg4aGe5wCmBUY", class: 'logo_img'), root_path %>
           </div>
           <nav>
             <ul class="nav navbar-nav">
                 <% if current_user %>
-                  <%= link_to gravatar_image_tag(current_user.email), current_user %>
+                <li><%= link_to gravatar_image_tag(current_user.email), current_user %></li>
                 <% end %>
-              <li><%= link_to "Home", root_path %></li>
-              <li><%= link_to "Help", '#' %></li>
-              <li>
-                <% if current_user %>
-                  <%= link_to "Log out", '#' %>
-                <% else %>
-                  <%= link_to 'Sign in', '#' %>
-                  <%= link_to 'Sign up', '#' %>
-                <% end %>
-              </li>
+              <li><%= link_to "Home", root_path, class: 'home' %></li>
+              <li><%= link_to "Help", '#', class: 'help' %></li>
+              <% if current_user %>
+                <li><%= link_to "Log out", '#', class: 'logout' %></li>
+              <% else %>
+                <li><%= link_to 'Sign in', '#', class: 'signin' %></li>
+                <li><%= link_to 'Sign up', '#', class: 'signout' %></li>
+              <% end %>
             </ul>
           </nav>
         </div>
