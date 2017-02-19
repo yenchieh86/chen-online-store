@@ -1,6 +1,10 @@
 class Item < ApplicationRecord
-    belongs_to :user
-    
-    validates :title, presence: true
-    validates :body, presence: true
+  belongs_to :user
+  has_many :photos, dependent: :destroy
+  accepts_nested_attributes_for :photos
+  
+  validates :title, presence: true
+  validates :body, presence: true
+  
+  
 end

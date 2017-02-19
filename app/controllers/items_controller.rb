@@ -8,11 +8,11 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @photo = @item.photos.new
   end
   
   def create
-    @item = Item.new(item_params)
-    @item.user_id = current_user.id
+    @item = current_user.items.build(item_params)
     
     if @item.save
       flash[:notice] = 'Your product is upload.'
@@ -27,6 +27,6 @@ class ItemsController < ApplicationController
   private
   
   def item_params
-    params.require(:item).permit(:title, :price, :quantity, :body)
+    params.require(:item).permit(:title, :price, :quantity, :body, photos_attributes: [:image])
   end
 end
