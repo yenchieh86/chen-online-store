@@ -10,4 +10,6 @@ class User < ApplicationRecord
   
   enum role: [:standard, :seller, :admin]
   
+  has_many :items, dependent: :destroy
+  
 end

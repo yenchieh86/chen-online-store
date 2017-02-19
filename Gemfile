@@ -18,6 +18,7 @@ gem 'devise'
 gem 'pundit'
 gem "twitter-bootstrap-rails"
 gem 'bootstrap_form'
+gem 'mini_magick'
 gem 'carrierwave', '~> 1.0'
 gem 'delayed_job_active_record'
 gem 'faker', '~> 1.7'

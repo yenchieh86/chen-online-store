@@ -1,0 +1,22 @@
+<div class='container-fluid'>
+  <% if alert %>
+  <div class='row bg-danger'>
+    <div class='col-md-12'>
+      <h2><%= pluralize(alert.count, 'error') %></h2>
+      <ol>
+        <% alert.each do |t| %>
+          <li>
+            <h4><%= t %></h4>
+          </li>
+        <% end %>
+      </ol>
+    </div>
+  </div>
+  <% elsif notice %>
+  <div class='row  bg-info'>
+    <div class='col-md-12'>
+      <p><%= notice %></p>
+    </div>
+  </div>  
+  <% end %>
+</div>
