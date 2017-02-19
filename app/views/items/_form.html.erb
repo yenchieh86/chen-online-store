@@ -3,18 +3,25 @@
     <div class='col-md-12'>
       <%= f.text_field :title, label: "Name of Product: " %>
     </div>
-    <div class='col-md-6'>
+    <div class='col-md-4'>
       <%= f.number_field :price, label: "Price: ", control_col: "col-md-2" %> 
     </div>
-    <div class='col-md-6'>
+    <div class='col-md-4'>
       <%= f.number_field :quantity, label: "Quantity: ", control_col: "col-md-2" %>
     </div>
+    
+    <div class='col-md-12'>
+      <%= f.fields_for :photos do |photo| %>
+        <%= photo.label :photo %>
+        <%= photo.file_field :image %>
+      <% end %>
+    </div>
+    
     <div class='col-md-12'>
       <%= f.text_area :body, label: "Product's Informations: " %>
     </div>
     <div class='col-md-12'>
-      <%= f.submit "Upload" %>
+      <%= f.submit "Submit" %>
     </div>
   <% end %>
 </div>
-
