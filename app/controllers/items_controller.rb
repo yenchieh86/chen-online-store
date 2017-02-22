@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @photo = @item.photos.new
+    @categories = Category.all.collect { |c| [c.title, c.id] }
   end
   
   def create
@@ -21,6 +22,11 @@ class ItemsController < ApplicationController
       flash[:alert] = @item.errors.full_messages
       render :new
     end
+  end
+  
+  def edit
+    @item = Item.find(params[:id])
+    @categories = Category.all.collect { |c| [c.id, c.title] }
   end
   
   def update
@@ -36,7 +42,7 @@ class ItemsController < ApplicationController
   
   private
   
-  def item_params
-    params.require(:item).permit(:title, :price, :quantity, :body, photos_attributes: [:image])
-  end
+    def item_params
+      params.require(:item).permit(:title, :price, :quantity, :body, :category_id, photos_attributes: [:image])
+    end
 end

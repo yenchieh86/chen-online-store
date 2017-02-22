@@ -1,0 +1,39 @@
+<div class='container categories_control_index'>
+  <div class='row'>
+    <div class='text-center'>
+      <h1>Categories List</h1>
+    </div>
+    <div class='text-center create_button'>
+      <%= link_to 'Add New Category', new_category_path, class: 'btn btn-success' %>
+    </div>
+    <% unless @categories.empty? %>
+      <div class='categories_list'>
+        <table class='table table-bordered'>
+          <% @categories.each_with_index do |category, index| %>
+            <tr>
+              <th class='text-center'>
+                <%= index + 1 %>.
+              </th>
+              <td>
+                <strong><%= category.title %></strong>
+              </td>
+              <td class='btn_area'>
+                Number of items: <%= category.items.count %>
+              </td>
+              <td class='btn_area'>
+                <%= link_to "Info", category_path(category), class: 'btn btn-default' %>
+                <%= link_to "Edit", edit_category_path(category), class: 'btn btn-info' %>
+                <%= link_to 'Delete', category_path(category), method: :delete, class: 'btn btn-danger' %>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    <% else %>
+      <div class='col-md-12 text-center'>
+        <h2>There's no category</h2>
+      </div>
+    <% end %>
+  </div>
+</div>
+

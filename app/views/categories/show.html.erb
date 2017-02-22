@@ -1,0 +1,45 @@
+<div class='container category_show_page'>
+    <div class='row'>
+        <div class='col.md.12 text-center'>
+            <h1>&lt<%= @category.title %>&gt's information</h1>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col.md.12'>
+            <table class="table table-bordered">
+                <tr class='category_info'>
+                    <th>
+                        Descriptions:
+                    </th>
+                    <td>
+                        <%= @category.body %>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-12 text-center'>
+            <h2>List of Items</h2>
+        </div>
+    </div>
+    <div class='row'>
+        <% unless @category.items.empty? %>
+            <% @category.items.each_with_index do |item, index| %>
+                <div class='col-md-1'>
+                    <strong><%= index + 1%></strong>
+                </div>
+                <div class='col-md-2'>
+                    <%= image_tag(item.photos.first.image.thumb.url) %>
+                </div>
+                <div class='col-md-3'>
+                    <%= item.title %>
+                </div>
+            <% end %>
+        <% else %>
+            <div  class='text-center'>
+                <h4>This category has no item.</h4>
+            </div>
+        <% end %>
+    </div>
+</div>

@@ -4,6 +4,9 @@
       <%= f.text_field :title, label: "Name of Product: " %>
     </div>
     <div class='col-md-4'>
+      <%= f.select :category_id, @categories, { label: "Category: "}%> 
+    </div>
+    <div class='col-md-4'>
       <%= f.number_field :price, label: "Price: ", control_col: "col-md-2" %> 
     </div>
     <div class='col-md-4'>

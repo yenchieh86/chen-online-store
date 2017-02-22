@@ -1,0 +1,5 @@
+<%= bootstrap_form_for(@category) do |f| %>
+    <%= f.text_field :title, label: 'Title: '  %>
+    <%= f.text_area :body, label: 'Descriptions: ' %>
+    <%= f.submit 'Save' %>
+<% end %>
