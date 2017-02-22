@@ -56,7 +56,7 @@ header{
 }
 
 main {
-  margin-top: 10px;
+  margin: 15px 0;
 }
 
 footer {
@@ -76,5 +76,47 @@ footer {
         background-color: white;
       }
     }
+  }
+}
+
+.user_show_page {
+  
+  .user_info {
+    margin-bottom: 15px;
+  }
+  
+  .user_show_controllpanel {
+    background-color: rgb(148,148,148);
+    padding: 10px 40px;
+    
+    a {
+      margin:10px 20px;
+    }
+  }
+}
+
+.row {
+  width: 100%;
+}
+
+.control_product_list {
+	left: 25%;
+	background-color: rgb(148,148,148);
+	border: black 2px solid;
+  
+  img {
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+  
+  h3 {
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  .price,
+  .quantity {
+    display: inline-block;
+    margin-right: 15px;
   }
 }

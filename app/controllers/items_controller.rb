@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @items = Item.where(user_id: current_user.id)
   end
 
   def show
@@ -13,13 +13,23 @@ class ItemsController < ApplicationController
   
   def create
     @item = current_user.items.build(item_params)
-    
+    authorize @item
     if @item.save
       flash[:notice] = 'Your product is upload.'
-      redirect_to root_path
+      redirect_to user_items_path(current_user)
     else
       flash[:alert] = @item.errors.full_messages
-      render 'new'
+      render :new
+    end
+  end
+  
+  def update
+    @item = Item.find(params[:id])
+    authorize @item
+    if @item.update(item_params)
+      redirect_to @item
+    else 
+      render :edit
     end
   end
   

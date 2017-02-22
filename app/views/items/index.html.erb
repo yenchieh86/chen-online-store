@@ -1,2 +1,40 @@
-<h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<div class='container-fluid text-center'>
+  <div class='row'>
+    <h1><%= current_user.username %>'s Products List</h1>
+    <%= link_to "Post a new product", new_item_path, class: 'btn btn-success' %>
+    <% if @items.empty? %>
+      <h3>You haven't post any product yet!</h3>
+    <% else %>
+      <h3>You have <%= pluralize(@items.count, 'product') %> in the list</h3>
+      <div>
+        <% @items.each_with_index do |item, i| %>
+          <div class= 'col-md-7 control_product_list'>
+            
+            <div class='col-md-1 list_number'>
+              <h3><%= i + 1 %>.</h3>
+            </div>
+            <div class='col-md-2'>
+              <%= image_tag(item.photos.first.image.medium.url) %>
+            </div>
+            <div class='col-md-9 text-left'>
+              <div class='col-md-9'>
+                <h4>Title: <%= item.title %></h4>
+              </div>
+              <div class='col-md-9'>
+                <h4 class='price'>Price: <%= item.price %></h4>
+                <h4 class='quantity'>Quantity: <%= item.quantity %></h4>
+              </div>
+              <div class='col-md-9'>
+                <%= link_to 'Show Info', '#', class: 'btn btn-info'%>
+                <%= link_to 'Edit', '#', class: 'btn btn-warning'%>
+                <%= link_to 'Delete', '#', class: 'btn btn-danger' %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
