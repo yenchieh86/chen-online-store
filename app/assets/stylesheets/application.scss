@@ -225,3 +225,28 @@ body {
         }
     }
 }
+
+.item_show {
+    .product_img {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .out_of_stocK,
+    .quantity_not_alot {
+        color: rgb(240,0,3);
+        font-weight: bold;
+    }
+    
+    .in_stock {
+        color: rgb(0,225,0);
+        font-weight: bold;
+    }
+    
+    .btn_area {
+        a {
+            height: 25px;
+            padding: 2px 8px;
+        }
+    }
+}

@@ -1,2 +1,39 @@
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
+<div class='item_show'>
+    <div class='row'>
+        <div class='col-md-10 col-md-offset-1'>
+            <div class='col-md-5 text-right'>
+                <%= image_tag(@item.photos[0].image.url, class: 'product_img') %>
+            </div>
+            <div class='col-md-5'>
+                <h6>Category: <%= link_to "<#{@item.category.title}>", '#' %></h6>
+                <h3><%= @item.title %></h3>
+                <h3>Price: $<%= @item.price%></h3>
+                <% if @item.quantity < 4 %>
+                    <h3 class='quantity_not_alot'>Only <%= @item.quantity %> Left</h3>
+                <% elsif @item.quantity === 0 %>
+                    <h3 class='out_of_stocK'>Out of Stocl.</h3>
+                <% else %>
+                     <h3 class='in_stock'>In Stock.</h3>
+                <% end %>
+                <div class='sold_review_area'>
+                    <p>Sold: #, Reviews: #, Rating : #, Wishing: #</p>
+                </div>
+                <div class='btn_area'>
+                    <%= link_to 'Buy Now', '#', class: 'btn btn-info'%>
+                    <%= link_to 'Add to Cart', '#', class: 'btn btn-info'%>
+                    <%= link_to 'Add to Wish List', '#', class: 'btn btn-info'%>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-10 col-md-offset-1 text-center'>
+            <h3>Description</h3>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-10 col-md-offset-1'>
+            <%= @item.body %>
+        </div>
+    </div>
+</div>
