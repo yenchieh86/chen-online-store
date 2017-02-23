@@ -1,0 +1,19 @@
+<div class='review_from'>
+    <%= bootstrap_form_for([@item, @review]) do |f| %>
+    <div class='row'>
+        <div class='col-md-8 col-md-offset-2'>
+            <%= f.select :rating, [['Perfect', 5], ['Excellent', 4], ['Loving it', 3], ['Normal', 2], ["Don't like it", 1]], { label: 'Rating: ' } %>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-8 col-md-offset-2'>
+            <%= f.text_area :body, label: 'Comment: ' %>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-8 col-md-offset-2'>
+            <%= f.submit 'Send' %>
+        </div>
+    </div>
+    <% end %>
+</div>

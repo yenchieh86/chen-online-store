@@ -1,0 +1,52 @@
+<div class='review_index'> 
+    <div class='row'>
+        <div class='col-md-10 col-md-offset-1 text-center'>
+            <h2>&lt<%= @item.title %>&gt's review list</h2>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-10 col-md-offset-1 text-center create_button'>
+            <%= link_to 'Create review', new_item_review_path(@item), class: 'btn btn-info' %>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-8 col-md-offset-2 review_area'>
+            <% unless @item.reviews.count === 0 %>
+                <table class="table table-bordered">
+                    <tr class='label_area text-center'>
+                        <th class='text-center'>
+                            <h5>No</h5>
+                        </th>
+                        <td>
+                            <h5>Img</h5>
+                        </td>
+                        <td>
+                            <h5>Rating</h5>
+                        </td>
+                        <td>
+                            <h5>Comment</h5>
+                        </td>
+                    </tr>
+                    <% @item.reviews.each_with_index do |review, index| %>
+                        <tr>
+                            <th class='table_index text-center'>
+                                <%= index + 1 %>
+                            </th>
+                            <td class='table_img'>
+                                <%= gravatar_image_tag(review.user.email) %>
+                            </td>
+                            <td class='table_riting text-center'>
+                                <%= review.rating %>
+                            </td>
+                            <td class='table_body'>
+                                <%= review.body %>
+                            </td>
+                        </tr>
+                    <% end %>
+                </table>
+            <% else %>
+                <h2 class='text-center no_review'>This item doesn't have any review.</h2>
+            <% end %>
+        </div>
+    </div>
+</div>

@@ -223,6 +223,12 @@ body {
         h5 {
             margin: 15px 0;
         }
+        
+        p {
+            width: 100px;
+            margin-right: 15px;
+            display: inline;
+        }
     }
 }
 
@@ -247,6 +253,39 @@ body {
         a {
             height: 25px;
             padding: 2px 8px;
+        }
+    }
+}
+
+.review_index {
+    .no_review {
+        border: 2px solid red;
+    }
+    
+    .create_button {
+        margin-bottom: 10px;
+    }
+    
+    .review_area {
+        
+        
+        .table_index {
+            width: 50px;
+            padding-top: 18px;
+        }
+        
+        img {
+            height: 40px;
+            width: 40px;
+        }
+        
+        .table_img {
+            width: 50px;
+        }
+        
+        .table_riting {
+            width: 50px;
+            padding-top: 18px;
         }
     }
 }

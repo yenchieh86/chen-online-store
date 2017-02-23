@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   get '/help', to: 'static_pages#help'
   get '/contect', to: 'static_pages#contect'
   devise_for :users
@@ -16,6 +16,12 @@ Rails.application.routes.draw do
   end
   
   resources :items, only: [:show, :new, :create, :edit, :update, :destroy]
+
+  resources :reviews, only: [:destroy]
+
+  resources :items, only: [] do
+    resources :reviews, only: [:index, :show, :create, :new]
+  end
   
   
   root 'static_pages#home'

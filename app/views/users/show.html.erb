@@ -14,7 +14,7 @@
     </div>
     <div class='row'>
         <div class='col-md-10 col-md-offset-1 user_show_controllpanel'>
-                <% if current_user.admin? %>
+            <% if current_user.admin? %>
                 <%= link_to "Categories", categories_path, class: 'btn btn-default col-md-2' %>
             <% end %>
             <% if current_user.seller? || current_user.admin? %>
@@ -28,6 +28,7 @@
             <%= link_to "Purchases", '#', class: 'btn btn-default col-md-2' %>
             <%= link_to "Products", '#', class: 'btn btn-default col-md-2' %>
             <%= link_to "Purchases", '#', class: 'btn btn-default col-md-2' %>
+            <%= link_to "Products", '#', class: 'btn btn-default col-md-2' %>
             <%= link_to "Products", '#', class: 'btn btn-default col-md-2' %>
             <%= link_to "Products", '#', class: 'btn btn-default col-md-2' %>
         </div>
