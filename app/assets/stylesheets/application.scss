@@ -7,145 +7,221 @@
  *= require rails_bootstrap_forms
 */
 
-header{
-  background-color: rgb(148,148,148);
-  
-  .logo {
-    float: left;
-  }
-  
-  .logo_img {
-    width: 30%;
-    padding: 15px;
+html, 
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
     
-    &:hover {
-      background-color: white;
+    .container-fluid {
+        min-height: 100%;
+        position: relative;
     }
-  }
-  
-  .nav.navbar-nav {
-    float: right;
-    
-    .nav_gravatar {
-      padding: 15px 0px;
-      text-align: center;
-    }
-    
-    img {
-      width: 58%;
-      height: 58%;
-    }
-    
-    a {
-      color: white;
-      
-      &:hover {
-        color: black;
-      }
-    }
-    
-    .home,
-    .help,
-    .logout,
-    .signin,
-    .signup {
-      padding-top: 28px;
-      padding-bottom: 28px;
-    }
-  }
 }
 
-main {
-  margin: 15px 0;
+.header {
+    .navbar{
+        background-color: rgb(148,148,148);
+    }
+
+    .logo {
+        float: left;
+
+        img {
+            width: 40%;
+            height: 40%;
+        }
+    }
+
+    .nav.navbar-nav {
+        float: right;
+        .nav_gravatar {
+            text-align: center;
+            
+            &:hover {
+                background-color: white;
+            }
+
+            img {
+                height: 75%;
+                width: 75%
+            }
+        }
+
+        .home,
+        .help,
+        .logout,
+        .signin,
+        .signup {
+            padding: 35px 15px;
+            color: white;
+
+            &:hover {
+                background-color: white;
+                color: black;
+            }
+        }
+    }
 }
 
-footer {
-  background-color: rgb(148,148,148);
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
-  
-  .nav.navbar-nav {
-    float: right;
-    
-    a {
-      color: white;
-      
-      &:hover {
-        color: black;
-        background-color: white;
-      }
+.message {
+    .row{
+        margin-top: -20px;
+        margin-bottom: 20px;
     }
-  }
+}
+
+.mean_area {
+    margin-bottom: 60px;
+}
+
+.debug_area {
+    margin-bottom: 50px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    
+    .row {
+        background-color: rgb(148,148,148);
+    }
+    
+    .nav.navbar-nav {
+        float: right;
+    }
+    
+    .contect {
+        color: white;
+        
+        &:hover {
+            background-color: white;
+            color: black;
+        }
+    }
 }
 
 .user_show_page {
-  
-  .user_info {
-    margin-bottom: 15px;
-  }
-  
-  .user_show_controllpanel {
-    background-color: rgb(148,148,148);
-    padding: 10px 40px;
-    
-    a {
-      margin:10px 20px;
-    }
-  }
-}
-
-.row {
-  width: 100%;
-}
-
-.control_product_list {
-	left: 25%;
-	background-color: rgb(148,148,148);
-	border: black 2px solid;
-  
-  img {
-    margin-top: 15px;
-    margin-bottom: 10px;
-  }
-  
-  h3 {
-    margin-top: 50px;
-    text-align: center;
-  }
-
-  .price,
-  .quantity {
-    display: inline-block;
-    margin-right: 15px;
-  }
-}
-
-.categories_control_index {
-  
-  .categories_list {
-    margin: 20px 0;
-  }
-
-  .btn_area {
-    width: 100px;
-  }
-  
-  .btn_area {
-    width: 330px;
-  
-    .btn {
-      width: 100px;
-    }
-  }
-}
-
-.category_show_page {
-  .category_info {
-    th {
-      width: 200px;
+    .user_info_area {
+        margin-bottom: 20px;
     }
     
-  }
-  
+    .user_show_controllpanel {
+        background-color: rgb(148,148,148);
+        padding: 5px;
+        
+        .btn {
+            border: 5px solid rgb(148,148,148);
+        }
+    }
+}
+
+.categories_index {
+    .create_button {
+        margin-bottom: 10px;
+    }
+    
+    .table_title {
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+    
+    .table_index {
+        width: 50px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+    
+    .table_number {
+        width: 180px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+    
+    .btn_area {
+        width: 250px;
+        padding: 8px 15px;
+        .btn {
+            width: 70px;
+        }
+    }
+}
+
+.category_show {
+    .category_info {
+        th {
+            width: 60px;
+        }
+    }
+    
+    .create_button {
+        margin-bottom: 10px;
+    }
+    
+    .items_list {
+        .table_index {
+            width: 50px;
+            padding-top: 23px;
+            padding-bottom: 23px;
+        }
+        
+        .table_img {
+            width: 60px;
+        }
+        
+        .btn_area {
+            width: 250px;
+            padding: 16px 15px;
+            
+            .btn {
+                width: 70px;
+            }
+        }
+        
+        .table_title {
+            padding-top: 23px;
+            padding-bottom: 3px;
+        }
+    }
+}
+
+.category_form{
+    #category_body {
+        height: 200px;
+    }
+}
+
+.item_form {
+    #item_body {
+        height: 200px;
+    }
+}
+
+.items_index {
+   .table_index {
+        width: 50px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    
+    .table_img {
+        width: 110px;
+    }
+    
+    .btn_area {
+        width: 250px;
+        padding: 45px 15px;
+
+        .btn {
+            width: 70px;
+        }
+    }
+    
+    .table_title {
+        h5 {
+            margin: 15px 0;
+        }
+    }
 }

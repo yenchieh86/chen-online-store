@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>OnlineStore</title>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-  <body>
-    <header class='container-fluid'>
-      <%= render '/layouts/header' %>
-    </header>
-    <%= render 'layouts/message' %>
-    <main>
-      <%= yield %>
-    </main>
-    <div class='container-fluid'>
-      <%= debug(params) if Rails.env.development? %>
-    </div>
-    <footer class='container-fluid'>
-      <%= render 'layouts/footer' %>
-    </footer>
-  </body>
+    <head>
+        <title>OnlineStore</title>
+        <%= csrf_meta_tags %>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
+    <body>
+        <div class='container-fluid'>
+            <div class='header'>
+                <%= render 'layouts/header' %>
+            </div>
+            <div class='message'>
+                <%= render 'layouts/message' %>
+            </div>
+            <div class='mean_area'>
+                <%= yield %>
+            </div>
+            <div class='debug_area'>
+                <%= debug(params) if Rails.env.development? %>
+            </div>
+            <div class='footer'>
+                <%= render 'layouts/footer' %>
+            </div>
+        </div>
+    </body>
 </html>

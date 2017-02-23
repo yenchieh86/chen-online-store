@@ -1,15 +1,13 @@
-<div class='container-fluid'>
-  <% if alert %>
+<% if alert %>
     <div class='row bg-danger'>
-      <div class='col-md-12'>
-        <h4><%= alert %></h4>
-      </div>
+        <div class='col-md-12'>
+            <h4><%= alert %></h4>
+        </div>
     </div>
-  <% elsif notice %>
-  <div class='row  bg-info'>
-    <div class='col-md-12'>
-      <h4><%= notice %></h4>
+<% elsif notice %>
+    <div class='row  bg-info'>
+        <div class='col-md-12'>
+            <h4><%= notice %></h4>
+        </div>
     </div>
-  </div>  
-  <% end %>
-</div>
+<% end %>

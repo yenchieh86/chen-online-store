@@ -1,20 +1,20 @@
 <div class='row'>
-  <div class='logo'>
-    <%= link_to image_tag("logo.jpg", class: 'logo_img'), root_path %>
-  </div>
-  <nav>
-    <ul class="nav navbar-nav">
-      <% if current_user %>
-        <li><%= link_to gravatar_image_tag(current_user.email), current_user, class: 'nav_gravatar' %></li>
-      <% end %>
-      <li><%= link_to "Home", root_path, class: 'home' %></li>
-      <li><%= link_to "Help", help_path, class: 'help' %></li>
-      <% if current_user %>
-        <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'logout' %></li>
-      <% else %>
-        <li><%= link_to 'Sign in', new_user_session_path, class: 'signin' %></li>
-        <li><%= link_to 'Sign up', new_user_registration_path, class: 'signup' %></li>
-      <% end %>
-    </ul>
-  </nav>
+    <div class='navbar'>
+        <div class='logo' >
+            <%= link_to image_tag("logo.jpg"), root_path %>
+        </div>
+        <ul class="nav navbar-nav">
+            <% if current_user %>
+                <li><%= link_to gravatar_image_tag(current_user.email), current_user, class: 'nav_gravatar' %></li>
+            <% end %>
+            <li><%= link_to "Home", root_path, class: 'home' %></li>
+            <li><%= link_to "Help", help_path, class: 'help' %></li>
+            <% if current_user %>
+                <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'logout' %></li>
+            <% else %>
+                <li><%= link_to 'Sign in', new_user_session_path, class: 'signin' %></li>
+                <li><%= link_to 'Sign up', new_user_registration_path, class: 'signup' %></li>
+            <% end %>
+        </ul>
+    </div>
 </div>

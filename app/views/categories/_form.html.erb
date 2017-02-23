@@ -1,5 +1,20 @@
-<%= bootstrap_form_for(@category) do |f| %>
-    <%= f.text_field :title, label: 'Title: '  %>
-    <%= f.text_area :body, label: 'Descriptions: ' %>
-    <%= f.submit 'Save' %>
-<% end %>
+<div class='category_form'>
+    <%= bootstrap_form_for(@category) do |f| %>
+        <div class='row'>
+            <div class='col-md-10 col-md-offset-1'>
+                <%= f.text_field :title, label: 'Title: ', autofocus: true  %>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col-md-10 col-md-offset-1'>
+                <%= f.text_area :body, label: 'Descriptions: ' %>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col-md-10 col-md-offset-1'>
+                <%= f.submit 'Save' %>
+                <%= link_to 'Back', url_for(:back), class: 'btn btn-default' %>
+            </div>
+        </div>
+    <% end %>
+</div>

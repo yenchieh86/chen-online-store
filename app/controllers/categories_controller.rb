@@ -47,11 +47,11 @@ class CategoriesController < ApplicationController
     authorize @category
     
     if @category.delete
-      flash[:notice] = 'Category has been deleted!'
-      redirect_to categories_path
+      flash[:notice] = "<#{@category.title}> has been deleted!"
+      redirect_to :back
     else
       flash[:alert] = @category.errors.full_messages
-      render categories_path
+      render :back
     end
   end
   

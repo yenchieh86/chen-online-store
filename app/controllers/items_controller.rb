@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.where(user_id: current_user.id)
+    @items = policy_scope(Item)
   end
 
   def show
@@ -32,6 +32,7 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     authorize @item
+    
     if @item.update(item_params)
       redirect_to @item
     else 
@@ -39,6 +40,18 @@ class ItemsController < ApplicationController
     end
   end
   
+  def destroy
+    @item = Item.find(params[:id])
+    authorize @item
+    
+    if @item.destroy
+      flash[:notice] = "<#{@item.title}> is gone."
+      redirect_to :back
+    else
+      flash[:alert] = item.errors.full_messages
+      render :back
+    end
+  end
   
   private
   
