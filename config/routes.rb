@@ -2,16 +2,18 @@ Rails.application.routes.draw do
 
   get '/help', to: 'static_pages#help'
   get '/contect', to: 'static_pages#contect'
+  get '/control_target/target_product_list/:id', to: 'control_target#target_product_list', as: 'target_product_list'
+  
   devise_for :users
-  resources :users, only: [:show]
+  resources :users, only: [:index, :show]
   
   resources :user, only: [] do
     resources :items, only: [:index]
   end
   
-  resources :categories, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :categories
   
-  resources :categories, only: [:show] do
+  resources :categories, only: [] do
     resources :items, only: [:index]
   end
   

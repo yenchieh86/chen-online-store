@@ -1,0 +1,62 @@
+<div class='user_index'>
+    <div class='row'>
+        <div class='col-md-10 col-md-offset-1 text-center'>
+            <h3>User List</h3>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-10 col-md-offset-1'>
+            <table class='table table-bordered'>
+                <tr class='table_label text-center'>
+                    <th class='text-center'>
+                        <h5>No</h5>
+                    </th>
+                    <td>
+                        <h5>Img</h5>
+                    </td>
+                    <td>
+                        <h5>Username</h5>
+                    </td>
+                    <td>
+                        <h5>Email</h5>
+                    </td>
+                    <td>
+                        <h5>Other Info</h5>
+                    </td>
+                    <td>
+                        <h5>Control Buttons</h5>
+                    </td>
+                </tr>
+                <% @users.each_with_index do |user, index| %>
+                    <tr class='table_user_info'>
+                        <th class='text-center'>
+                            <%= index + 1 %>
+                        </th>
+                        <td class='table_img'>
+                            <%= gravatar_image_tag(user.email) %>
+                        </td>
+                        <td>
+                            <%= user.username %>
+                        </td>
+                        <td>
+                            <%= user.email%>
+                        </td>
+                        <td class='table_info text-center'>
+                            <% unless user.standard? %>
+                                <%= link_to "Products: #{ user.items.count }", target_product_list_path(user), class: 'btn btn-default' %>
+                            <% end %>
+                            <%= link_to "Wishes: #", '#', class: 'btn btn-default' %>
+                            <%= link_to 'ordered: #', '#', class: 'btn btn-default' %>
+                            <%= link_to "Review: #{ user.reviews.count }", '#', class: 'btn btn-default' %>
+                            <%= link_to "Rating: #{ average_rating(user) }", '#', class: 'btn btn-default' %>
+                        </td>
+                        <td class='btn_area'>
+                            <%= link_to 'Edit', '#', class: 'btn btn-info' %>
+                            <%= link_to 'Delete', user_registration_path(user), method: :delete, class: 'btn btn-danger' %>
+                        </td>
+                    </tr>
+                <% end %>
+            </table>
+        </div>
+    </div>
+</div>

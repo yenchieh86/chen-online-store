@@ -199,7 +199,7 @@ body {
     }
 }
 
-.items_index {
+.item_list {
    .table_index {
         width: 50px;
         padding-top: 50px;
@@ -286,6 +286,43 @@ body {
         .table_riting {
             width: 50px;
             padding-top: 18px;
+        }
+    }
+}
+
+.user_index {
+    .table_label {
+        height: 52px;
+    }
+    
+    .table_user_info {
+        th{
+            padding-top: 18px;
+            width: 50px;
+        }
+        
+        img {
+            height: 40px;
+            width: 40px;
+            
+        }
+        
+        .table_img {
+            width: 60px;
+        }
+        
+        .table_info {
+            a {
+                width: 95px;
+                padding: 4px 6px;
+            }
+        }
+        
+        .btn_area {
+            a {
+                width: 60px;
+                padding: 4px 6px;
+            }
         }
     }
 }

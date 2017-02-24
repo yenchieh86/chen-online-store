@@ -1,4 +1,4 @@
-<div class='text-center items_index'>
+<div class='text-center'>
     <div class='row'>
         <div class='col-md-10 col-md-offset-1'>
             <h1><%= current_user.username %>'s Products List</h1>
@@ -9,49 +9,5 @@
             <%= link_to "Post a new product", new_item_path, class: 'btn btn-success' %>
         </div>
     </div>
-    <% unless @items.empty? %>
-        <div class='row'>
-            <div class='col-md-10 col-md-offset-1'>
-                <h3>You have <%= pluralize(@items.count, 'product') %> in the list</h3>
-            </div>
-        </div>
-        <div class='row'>
-            <div class='col-md-10 col-md-offset-1'>
-                <table class='table table-bordered'>
-                    <% @items.each_with_index do |item, index| %>
-                        <tr>
-                            <th class='text-center table_index'>
-                                <%= index + 1 %>.
-                            </th>
-                            <td class='table_img'>
-                                <% unless item.photos.empty? %> 
-                                    <%= image_tag(item.photos.first.image.medium.url) %>
-                                <% else %>
-                                    <%= image_tag("no_img.jpg", size: '100x100') %>
-                                <% end %>
-                            </td>
-                            <td class='table_title text-left'>
-                                <h5>Title: <%= item.title %></h5>
-                                <p>Price: $<%= item.price %></p>
-                                <p>Quantity: <%= item.quantity %></p>
-                                <p><%= link_to "Review: #{item.reviews.count}", item_reviews_path(item) %></p>
-                                <p>Average Rating: <%= average_rating(item) %></p>
-                            </td>
-                            <td class='btn_area text-center'>
-                                <%= link_to 'Info', item_path(item), class: 'btn btn-default'%>
-                                <%= link_to 'Edit', edit_item_path(item), class: 'btn btn-info'%>
-                                <%= link_to 'Delete', item_path(item), method: :delete, class: 'btn btn-danger' %>
-                            </td>
-                        </tr>
-                    <% end %>    
-                </table>
-            </div>
-        </div>
-    <% else %>
-        <div class='row'>
-            <div class='col-md-10 col-md-offset-1'>
-                <h3>You haven't post any product yet!</h3>
-            </div>
-        </div>
-    <% end %>
+    <%= render 'list' %>
 </div>
