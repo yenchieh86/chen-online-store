@@ -3,9 +3,6 @@ class ReviewsController < ApplicationController
     @item = Item.find(params[:item_id])
   end
 
-  def show
-  end
-
   def new
     @review = Review.new
     @item = Item.find(params[:item_id])

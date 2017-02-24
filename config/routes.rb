@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resources :reviews, only: [:destroy]
 
   resources :items, only: [] do
-    resources :reviews, only: [:index, :show, :create, :new]
+    resources :reviews, only: [:index, :create, :new]
   end
   
   
