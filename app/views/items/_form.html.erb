@@ -20,10 +20,13 @@
             </div>
         </div>
         <div class='row'>
-            <div class='col-md-10 col-md-offset-1'>
+            <div id='photos'>
                 <%= f.fields_for :photos do |photo| %>
-                    <%= photo.file_field :image%>
+                    <%= render 'photo_fields', f: photo %>
                 <% end %>
+            </div>
+            <div class="links col-md-10 col-md-offset-1">
+                <%= link_to_add_association 'add photo', f, :photos %>
             </div>
         </div>
         <div class='row'>

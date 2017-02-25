@@ -3,7 +3,7 @@ class Item < ApplicationRecord
   belongs_to :category
   has_many :wish_lists
   has_many :photos, dependent: :destroy
-  accepts_nested_attributes_for :photos
+  accepts_nested_attributes_for :photos, reject_if: :all_blank, allow_destroy: true
   has_many :reviews, dependent: :destroy
   
   validates :title, presence: true

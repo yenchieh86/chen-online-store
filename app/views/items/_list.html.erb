@@ -28,6 +28,7 @@
                                 <p>Wish: <%= item.wish_lists.count %>, </p>
                                 <p><%= link_to "Review: #{item.reviews.count}", item_reviews_path(item) %>, </p>
                                 <p>Average Rating: <%= average_rating(item) %></p>
+                                <p>Img Number: <%= item.photos.count %></p>
                             </td>
                             <td class='btn_area text-center'>
                                 <%= link_to 'Info', item_path(item), class: 'btn btn-default'%>
