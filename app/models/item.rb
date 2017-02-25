@@ -9,5 +9,5 @@ class Item < ApplicationRecord
   validates :title, presence: true
   validates :body, presence: true
   
-  
+  enum status: [:off_shelf, :on_shelf, :special_offer]
 end

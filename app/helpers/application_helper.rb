@@ -18,4 +18,11 @@ module ApplicationHelper
     @item = Item.find(wish.item_id)
   end
   
+  def change_item_status_word(string)
+    new_word = Array.new
+    
+    string.split('_').map{ |word| new_word.push(word.capitalize) }
+    new_word.join(' ')
+  end
+  
 end

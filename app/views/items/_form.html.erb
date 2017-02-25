@@ -9,10 +9,13 @@
             <div class='col-md-4 col-md-offset-1'>
                 <%= f.select :category_id, @categories, { label: "Category: "}%> 
             </div>
-            <div class='col-md-3'>
-                <%= f.number_field :price, label: "Price: " %> 
+            <div class='col-md-2'>
+                <%= f.select :status, [['Off Shelf', 'off_shelf'], ['On Shelf', 'on_shelf'], ['Special Offer', 'special_offer']], { label: "Status: "}%> 
             </div>
-            <div class='col-md-3'>
+            <div class='col-md-2'>
+                <%= f.number_field :price, label: "Price: ", step: 0.01 %> 
+            </div>
+            <div class='col-md-2'>
                 <%= f.number_field :quantity, label: "Quantity: " %>
             </div>
         </div>

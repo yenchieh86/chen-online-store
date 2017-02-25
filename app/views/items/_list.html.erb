@@ -22,6 +22,7 @@
                             </td>
                             <td class='table_title text-left'>
                                 <h5>Title: <%= item.title %></h5>
+                                <p>Status: <%= change_item_status_word(item.status) %>, </p>
                                 <p>Price: $<%= item.price %>, </p>
                                 <p>Quantity: <%= item.quantity %>, </p>
                                 <p>Wish: <%= item.wish_lists.count %>, </p>
