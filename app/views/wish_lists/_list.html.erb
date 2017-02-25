@@ -1,0 +1,58 @@
+<div class='wish_list_list'>
+    <div class='row'>
+        <div class='col-md-10 col-md-offset-1'>
+            <table class="table table-bordered">
+                <tr class='table_label text-center'>
+                    <th class='text-center'>
+                        <h5>No</h5>
+                    </th>
+                    <td>
+                        <h5>Img</h5>
+                    </td>
+                    <td>
+                        <h5>Product Name</h5>
+                    </td>
+                    <td>
+                        <h5>Product Info</h5>
+                    </td>
+                    <% unless current_user === @user %>
+                        <td>
+                            <h5>More Info</h5>
+                        </td>
+                    <% else %>
+                        <td>
+                            <h5>Buttons</h5>
+                        </td>
+                    <% end %>
+                </tr>
+                <% @wish_lists.each_with_index do |wish, index| %>
+                    <tr class='wish_area'>
+                        <th class='table_index text-center'>
+                            <%= index + 1 %>
+                        </th>
+                        <td class='table_img'>
+                            <%=  image_tag(wish_item(wish).photos[0].image.thumb.url) %>
+                        </td>
+                        <td class='table_title'>
+                            <%= wish_item(wish).title%>
+                        </td>
+                        <td class='table_wish_info'>
+                            <strong>Price: #, </strong>
+                            <strong>Quantity: #</strong>
+                        </td>
+                        <% unless current_user === @user %>
+                            <td class='table_more_info'>
+                                <strong>Created at: <%= (Date.current - wish_item(wish).created_at.to_date).to_i %> days ago</strong>
+                            </td>
+                        <% else %>
+                            <td class='table_button'>
+                                <%= link_to 'Buy Now', '#', class: 'btn btn-default' %>
+                                <%= link_to 'Put In Cart', '#', class: 'btn btn-default' %>
+                            </td>
+                        <% end %>
+                    </tr>
+                <% end %>
+            </table>
+        </div>
+    </div>
+</div>

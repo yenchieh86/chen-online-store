@@ -14,4 +14,8 @@ module ApplicationHelper
     end
   end
   
+  def wish_item(wish)
+    @item = Item.find(wish.item_id)
+  end
+  
 end

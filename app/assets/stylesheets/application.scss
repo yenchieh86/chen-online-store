@@ -283,7 +283,7 @@ body {
             width: 50px;
         }
         
-        .table_riting {
+        .table_rating {
             width: 50px;
             padding-top: 18px;
         }
@@ -323,6 +323,81 @@ body {
                 width: 60px;
                 padding: 4px 6px;
             }
+        }
+    }
+}
+
+.wish_list_index {
+    .table_label {
+        height: 52px;
+    }
+    
+    .wish_area {
+        .table_index {
+            width: 50px;
+            padding-top: 18px;
+        }
+        
+        img {
+            height: 40px;
+            width: 40px;
+            
+        }
+        
+        .table_img {
+            width: 60px;
+        }
+        
+        .table_title {
+            
+        }
+        
+        .table_wish_info {
+            width: 300px;
+            
+            strong {
+                margin-right: 15px;
+            }
+        }
+        
+        .table_more_info {
+            width: 220px;
+        }
+        
+        .table_button {
+            width: 220px;
+            
+            a{
+                width: 94px;
+            }
+        }
+    }
+}
+
+.target_review_list {
+    .label_area {
+        height: 37px;
+    }
+    
+    .review_area{
+        .table_index {
+            width: 50px;
+            padding-top: 20px;
+        }
+        
+        .img {
+            height: 40px;
+            width: 40px;
+            
+        }
+        
+        .table_img {
+            width: 60px;
+        }
+        
+        .table_rating {
+            width: 70px;
+            padding-top: 20px;
         }
     }
 }

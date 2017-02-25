@@ -1,0 +1,49 @@
+<div class='target_review_list'>
+    <div class='row'>
+        <div class='col-md-10 col-md-offset-1 text-center'>
+            <h1><%= @user.username %>'s review</h1>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-10 col-md-offset-1'>
+            <table class='table table-bordered'>
+                <tr class='label_area text-center'>
+                    <th class='text-center'>
+                        No
+                    </th>
+                    <td>
+                        Img
+                    </td>
+                    <td>
+                        Product Name
+                    </td>
+                    <td>
+                        Rating
+                    </td>
+                    <td>
+                        Comment
+                    </td>
+                </tr>
+                <% @reviews.each_with_index do |review, index| %>
+                    <tr class='review_area'>
+                        <th class='table_index text-center'>
+                            <%= index + 1 %>
+                        </th>
+                        <td class='table_img'>
+                            <%= image_tag(review.item.photos[0].image.thumb.url) %>
+                        </td>
+                        <td class='table_title'>
+                            <%= review.item.title %>
+                        </td>
+                        <td class='table_rating text-center'>
+                            <%= review.rating %>
+                        </td>
+                        <td class='table_comment'>
+                            <%= review.body %>
+                        </td>
+                    </tr>
+                <% end %>
+            </table>
+        </div>
+    </div>
+</div>

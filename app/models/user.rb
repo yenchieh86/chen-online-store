@@ -12,6 +12,6 @@ class User < ApplicationRecord
   
   has_many :items, dependent: :destroy
   has_many :reviews
-  has_one :wish_list, dependent: :destroy
+  has_many :wish_lists, dependent: :destroy
   
 end

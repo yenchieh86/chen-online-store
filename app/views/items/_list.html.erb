@@ -22,9 +22,10 @@
                             </td>
                             <td class='table_title text-left'>
                                 <h5>Title: <%= item.title %></h5>
-                                <p>Price: $<%= item.price %></p>
-                                <p>Quantity: <%= item.quantity %></p>
-                                <p><%= link_to "Review: #{item.reviews.count}", item_reviews_path(item) %></p>
+                                <p>Price: $<%= item.price %>, </p>
+                                <p>Quantity: <%= item.quantity %>, </p>
+                                <p>Wish: <%= item.wish_lists.count %>, </p>
+                                <p><%= link_to "Review: #{item.reviews.count}", item_reviews_path(item) %>, </p>
                                 <p>Average Rating: <%= average_rating(item) %></p>
                             </td>
                             <td class='btn_area text-center'>
