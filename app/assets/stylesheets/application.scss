@@ -293,13 +293,47 @@ body {
 .user_index {
     .table_label {
         height: 52px;
+        
+        th {
+            width: 50px;
+            max-width: 50px;
+        }
+        
+        .table_img {
+            width: 60px;
+            max-width: 60px;
+        }
+        
+        .table_username {
+            width: 200px;
+            max-width: 200px;
+        }
+        
+        .table_email {
+            width: 200px;
+            max-width: 200px;
+        }
+        
+        .table_info {
+            width: 450px;
+            max-width: 450px;
+        }
+        
+        .table_btn_area {
+            width: 200px;
+            max-width: 200px;
+        }
     }
     
     .table_user_info {
+        
         th{
             padding-top: 18px;
             width: 50px;
+            max-width: 50px;
         }
+        
+        
         
         img {
             height: 40px;
@@ -309,9 +343,39 @@ body {
         
         .table_img {
             width: 60px;
+            max-width: 60px;
+        }
+        
+        .table_username {
+            width: 200px;
+            max-width: 200px;
+            
+            h5 {
+                text-overflow: ellipsis;
+                width: 150px;
+                max-width: 150px;
+                overflow: hidden; 
+                margin-right: 0;
+            }
+        }
+        
+        .table_email {
+            width: 200px;
+            max-width: 200px;
+            
+            h5 {
+                text-overflow: ellipsis;
+                width: 150px;
+                max-width: 150px;
+                overflow: hidden; 
+                margin-right: 0;
+            }
         }
         
         .table_info {
+            width: 450px;
+            max-width: 450px;
+            
             a {
                 width: 95px;
                 padding: 4px 6px;
@@ -319,6 +383,9 @@ body {
         }
         
         .btn_area {
+            width: 200px;
+            max-width: 200px;
+            
             a {
                 width: 60px;
                 padding: 4px 6px;

@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
     def index
-        @users = User.all
+        @admin = User.where(role: 'admin')
+        @seller = User.where(role: 'seller')
+        @standard_user = User.where(role: 'standard')
     end
     
 end
