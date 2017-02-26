@@ -51,7 +51,9 @@
                             
                         </td>
                         <td class='btn_area text-center'>
-                            <%= link_to 'Edit', '#', class: 'btn btn-info' %>
+                            <!-- for lock/unlock user -->
+                            <%= link_to 'SaveSpace', '#', class: 'btn btn-info' %>
+                            
                             <%= link_to 'Delete', user_registration_path(user), method: :delete, class: 'btn btn-danger' %>
                         </td>
                     </tr>
