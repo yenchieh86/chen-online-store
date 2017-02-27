@@ -1,0 +1,39 @@
+<div class='order_show'>
+    <div class='row'>
+        <div class='col-md-10 col-md-offset-1 text-center'>
+            <h1>Detail for <%= @user.username %>'s Order No.<%= @order.id %></h1>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-10 col-md-offset-1'>
+            <table class='table table-bordered'>
+                <tr class='table_label text-center'>
+                    <th class='text-center'>
+                        <h5>Item No</h5>
+                    </th>
+                    <td>
+                        <h5>Img</h5>
+                    </td>
+                    <td>
+                        <h5>Title</h5>
+                    </td>
+                    <td>
+                        <h5>Price #</h5>
+                    </td>
+                    <td>
+                        <h5>Quantity #</h5>
+                    </td>
+                    <td>
+                        <h5>Total Price</h5>
+                    </td>
+                    <td>
+                        <h5>Buttons</h5>
+                    </td>
+                </tr>
+                <% @order.order_items.each_with_index do |order_item, index| %>
+                    <%= render 'order_items/order_items_list', order_item: order_item, index: index %>
+                <% end %>
+            </table>
+        </div>
+    </div>
+</div>

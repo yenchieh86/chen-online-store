@@ -25,4 +25,10 @@ module ApplicationHelper
     new_word.join(' ')
   end
   
+  def item_total_sell(item)
+    total = 0
+    item.order_items.each{ |order_item| total += order_item.quantity }
+    total
+  end
+  
 end

@@ -37,11 +37,11 @@
             </td>
             <td class='table_info text-center'>
                 <% unless user.standard? %>
-                    <%= link_to "Products: #{ user.items.count }", target_product_list_path(user.id), class: 'btn btn-default' %>
+                    <%= link_to "Products: #{ user.items.count }", target_product_list_path(user), class: 'btn btn-default' %>
                 <% end %>
-                <%= link_to "Wishes: #{ user.wish_lists.count }", target_wish_list_path(user.id), class: 'btn btn-default' %>
-                <%= link_to "Ordered: #{ user.orders.count }", '#', class: 'btn btn-default' %>
-                <%= link_to "Review: #{ user.reviews.count }", target_review_list_path(user.id), class: 'btn btn-default' %>
+                <%= link_to "Wishes: #{ user.wish_lists.count }", target_wish_list_path(user), class: 'btn btn-default' %>
+                <%= link_to "Ordered: #{ user.orders.count }", target_order_list_path(user), class: 'btn btn-default' %>
+                <%= link_to "Review: #{ user.reviews.count }", target_review_list_path(user), class: 'btn btn-default' %>
             </td>
             <td class='btn_area text-center'>
                 <!-- for lock/unlock user -->

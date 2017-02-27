@@ -1,0 +1,24 @@
+<div class='orders_list'>
+    <% user.orders.each_with_index do |order, index| %>
+        <tr class='table_label text-center'>
+            <th class='text-center'>
+                <h5><%= index + 1%></h5>
+            </th>
+            <td>
+                <h5><%= order.order_items.count %></h5>
+            </td>
+            <td>
+                <h5><%= item_total_sell(order) %></h5>
+            </td>
+            <td>
+                <h5>$ <%= order.order_total %></h5>
+            </td>
+            <td>
+                <h5><%= order.order_status.title %></h5>
+            </td>
+            <td>
+                <%= link_to 'Detail', user_order_path(user, order), class: 'btn btn-default' %>
+            </td>
+        </tr>
+    <% end %>
+</div>

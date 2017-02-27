@@ -6,11 +6,15 @@ class ControlTargetController < ApplicationController
     
     def target_wish_list
         @user = User.find(params[:id])
-        @wish_lists = WishList.where(user_id: params[:id])
+        @wish_lists = @user.wish_lists
     end
     
     def target_review_list
         @user = User.find(params[:id])
-        @reviews = Review.where(user_id: params[:id])
+        @reviews = @user.reviews
+    end
+    
+    def target_order_list
+        @user = User.find(params[:id])
     end
 end

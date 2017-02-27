@@ -1,7 +1,8 @@
 class WishListsController < ApplicationController
 
   def create
-    wish_list = current_user.wish_lists.create(item_id: params[:item_id])
+    item = Item.where(slug: params[:item_id]).first
+    wish_list = current_user.wish_lists.create(item_id: item.id)
     if wish_list.save
       flash[:notice] = "You saved a wish!"
       redirect_to :back

@@ -1,0 +1,29 @@
+<div class='order_items_list'>
+    <tr class='table_label text-center'>
+        <th class='text-center'>
+            <h5><%= index + 1 %></h5>
+        </th>
+        <td>
+            <% unless order_item.item.photos.empty? %> 
+                <%= image_tag(order_item.item.photos.first.image.medium.url) %>
+            <% else %>
+                <%= image_tag("no_img.jpg", size: '100x100') %>
+            <% end %>
+        </td>
+        <td>
+            <h5><%= order_item.item.title %></h5>
+        </td>
+        <td>
+            <h5><%= order_item.unit_price %></h5>
+        </td>
+        <td>
+            <h5><%= order_item.quantity %></h5>
+        </td>
+        <td>
+            <h5><%= order_item.total_price %></h5>
+        </td>
+        <td>
+            <h5>Buttons</h5>
+        </td>
+    </tr>
+</div>

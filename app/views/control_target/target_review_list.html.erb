@@ -30,7 +30,11 @@
                             <%= index + 1 %>
                         </th>
                         <td class='table_img'>
-                            <%= image_tag(review.item.photos[0].image.thumb.url) %>
+                            <% unless review.item.photos.empty? %> 
+                                <%= image_tag(review.item.photos.first.image.medium.url) %>
+                            <% else %>
+                                <%= image_tag("no_img.jpg", size: '100x100') %>
+                            <% end %>
                         </td>
                         <td class='table_title'>
                             <%= review.item.title %>

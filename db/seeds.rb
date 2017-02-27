@@ -44,11 +44,17 @@ user = User.new(
   seller.save
 end
 
-
+OrderStatus.create!(title: 'unpaid')
+OrderStatus.create!(title: 'processing')
+OrderStatus.create!(title: 'Placed')
+OrderStatus.create!(title: 'shipped')
+OrderStatus.create!(title: 'delivered')
+OrderStatus.create!(title: 'finished')
 
 Category.create!(title: 'Food', body: 'This Category is for all kinds of food.')
+Category.create!(title: 'Book', body: 'This Category is for all kinds of books.')
 
-category = Category.last
+category = Category.first
 
 2.times do 
   Item.create!(
@@ -109,8 +115,6 @@ category = Category.last
   )
 end
 
-Category.create!(title: 'Book', body: 'This Category is for all kinds of books.')
-
 category = Category.last
 
 2.times do 
@@ -170,4 +174,17 @@ category = Category.last
     user_id: Faker::Number.between(7, 10),
     item_id: Item.last.id
   )
+end
+
+
+5.times do
+  user = User.find(Faker::Number.between(1, 11))
+  item = Item.find(Faker::Number.between(1, 12))
+  amount = Faker::Number.between(1, 6)
+  orderstatus = OrderStatus.find(Faker::Number.between(1, 6))
+  order = user.orders.create(order_status_id: orderstatus.id, tax: Faker::Number.decimal(3, 2), shipping: Faker::Number.decimal(3, 2))
+  order_item = order.order_items.create(item_id: item.id, unit_price: item.price, quantity: amount, total_price: amount * item.price)
+  order.item_total = order_item.quantity
+  order.order_total = order.item_total + order.shipping + order.tax
+  order.save
 end

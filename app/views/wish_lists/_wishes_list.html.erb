@@ -31,7 +31,11 @@
                             <%= index + 1 %>
                         </th>
                         <td class='table_img'>
-                            <%=  image_tag(wish_item(wish).photos[0].image.thumb.url) %>
+                            <% unless wish_item(wish).photos.empty? %> 
+                                <%= image_tag(wish_item(wish).photos.first.image.medium.url) %>
+                            <% else %>
+                                <%= image_tag("no_img.jpg", size: '100x100') %>
+                            <% end %>
                         </td>
                         <td class='table_title'>
                             <%= wish_item(wish).title%>
