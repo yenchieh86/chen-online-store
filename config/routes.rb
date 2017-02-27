@@ -21,7 +21,6 @@ Rails.application.routes.draw do
   end
   
   resources :items, only: [:show, :new, :create, :edit, :update, :destroy]
-  
   resources :reviews, only: [:destroy]
   
   resources :items, only: [] do
