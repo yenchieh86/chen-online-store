@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170225063801) do
+ActiveRecord::Schema.define(version: 20170227010215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,43 @@ ActiveRecord::Schema.define(version: 20170225063801) do
     t.integer  "status",                               default: 0,     null: false
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
     t.index ["user_id"], name: "index_items_on_user_id", using: :btree
+  end
+
+  create_table "order_items", force: :cascade do |t|
+    t.integer  "item_id"
+    t.integer  "order_id"
+    t.decimal  "unit_price"
+    t.integer  "quantity"
+    t.decimal  "total_price"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["item_id"], name: "index_order_items_on_item_id", using: :btree
+    t.index ["order_id"], name: "index_order_items_on_order_id", using: :btree
+  end
+
+  create_table "order_sataus", force: :cascade do |t|
+    t.integer  "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "order_statuses", force: :cascade do |t|
+    t.integer  "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "order_status_id"
+    t.decimal  "item_total"
+    t.decimal  "tax"
+    t.decimal  "shipping"
+    t.decimal  "order_total"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
+    t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
 
   create_table "photos", force: :cascade do |t|
@@ -110,6 +147,10 @@ ActiveRecord::Schema.define(version: 20170225063801) do
   end
 
   add_foreign_key "items", "categories"
+  add_foreign_key "order_items", "items"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "orders", "order_statuses"
+  add_foreign_key "orders", "users"
   add_foreign_key "reviews", "items"
   add_foreign_key "reviews", "users"
   add_foreign_key "wish_lists", "items"

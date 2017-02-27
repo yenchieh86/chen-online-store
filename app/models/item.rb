@@ -5,6 +5,7 @@ class Item < ApplicationRecord
   has_many :photos, dependent: :destroy
   accepts_nested_attributes_for :photos, reject_if: :all_blank, allow_destroy: true
   has_many :reviews, dependent: :destroy
+  has_many :order_items
   
   validates :title, presence: true
   validates :body, presence: true
