@@ -1,0 +1,6 @@
+<div class='order_items_form'>
+    <%= bootstrap_form_for ([item, order_item]) do |f| %>
+        <%= f.number_field :quantity %>
+        <%= f.submit "Add to Cart", class: 'btn btn-info' %>
+    <% end %>
+</div>
