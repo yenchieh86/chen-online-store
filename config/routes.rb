@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :user, only: [] do
     resources :items, only: [:index]
     resources :orders, only: [:index, :show, :edit, :update, :create, :show, :destroy]
+    resources :charges, only: [:new, :create]
   end
   
   resources :categories

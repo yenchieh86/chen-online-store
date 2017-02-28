@@ -28,6 +28,7 @@ gem 'figaro'
 gem 'friendly_id'
 gem 'gravatar_image_tag'
 gem 'cocoon'
+gem 'stripe'
 
 group :development, :test do
   gem 'byebug', platform: :mri
