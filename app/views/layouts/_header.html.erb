@@ -3,6 +3,12 @@
         <div class='logo' >
             <%= link_to image_tag("logo.jpg"), root_path %>
         </div>
+        <div class='searching-area'>
+            <%= form_tag searches_path, method: :get do %>
+                <%= text_field_tag :query, params[:query] %>
+                <%= submit_tag 'Search', name: nil %>
+            <% end %>
+        </div>
         <ul class="nav navbar-nav">
             <% if current_user %>
                 <li><%= link_to gravatar_image_tag(current_user.email), current_user, class: 'nav_gravatar' %></li>

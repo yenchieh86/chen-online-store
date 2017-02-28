@@ -1,5 +1,4 @@
 class Item < ApplicationRecord
-  
   extend FriendlyId
   friendly_id :title, use: :slugged
   
@@ -15,4 +14,7 @@ class Item < ApplicationRecord
   validates :body, presence: true
   
   enum status: [:off_shelf, :on_shelf, :special_offer]
+  
+  include PgSearch
+  multisearchable :against => [:title, :body], :using => { :tsearch => {:dictionary => "english"} }
 end

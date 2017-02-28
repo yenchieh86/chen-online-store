@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   end
   
   resources :order_items, only: [:index, :show, :edit, :update, :show, :destroy]
+  resources :searches, only: [:index]
   
   root 'static_pages#home'
 

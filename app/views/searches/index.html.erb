@@ -1,0 +1,56 @@
+<div class='search_index'>
+    <div c;ass='row'>
+        <div class='col-md-10 col-md-offset-1 text-center'>
+            <h3>Search Results</h3>
+        </div>
+    </div>
+    <div class='row'>
+            <div class='col-md-10 col-md-offset-1'>
+                <table class='table table-bordered'>
+                    <tr class='text-center'>
+                        <th class='text-center'>
+                            No.
+                        </th>
+                        <td>
+                            Img
+                        </td>
+                        <td>
+                            Product Info
+                        </td>
+                        <td>
+                            Button
+                        </td>
+                    </tr>
+                    <% @items.each_with_index do |item, index| %>
+                        <tr>
+                            <th class='text-center table_index'>
+                                <%= index + 1 %>.
+                            </th>
+                            <td class='table_img'>
+                                <% unless item.photos.empty? %> 
+                                    <%= image_tag(item.photos.first.image.medium.url) %>
+                                <% else %>
+                                    <%= image_tag("no_img.jpg", size: '100x100') %>
+                                <% end %>
+                            </td>
+                            <td class='table_title text-left'>
+                                <h5>Title: <%= item.title %></h5>
+                                <p>Status: <%= change_item_status_word(item.status) %>, </p>
+                                <p>Price: $<%= item.price %>, </p>
+                                <p>Quantity: <%= item.quantity %>, </p>
+                                <p>Sold: <%= item_total_sell(item) %>, </p></br>
+                                <p>Wish: <%= item.wish_lists.count %>, </p>
+                                <p><%= link_to "Review: #{item.reviews.count}", item_reviews_path(item) %>, </p>
+                                <p>Average Rating: <%= average_rating(item) %>, </p>
+                                <p>Img Number: <%= item.photos.count %></p>
+                                
+                            </td>
+                            <td class='btn_area text-center'>
+                                <%= link_to 'Info', item_path(item), class: 'btn btn-default'%>
+                            </td>
+                        </tr>
+                    <% end %>    
+                </table>
+            </div>
+        </div>
+</div>

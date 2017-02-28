@@ -32,6 +32,18 @@ body {
             height: 40%;
         }
     }
+    
+    form {
+        width: 330px;
+        display: inline;
+        position: absolute;
+        bottom: 0px;
+        right: 320px;
+    }
+    
+    #query {
+        width: 250px;
+    }
 
     .nav.navbar-nav {
         float: right;
@@ -480,5 +492,36 @@ body {
             width: 70px;
             padding-top: 20px;
         }
+    }
+}
+
+.search_index {
+    .table_index {
+        height: 120px;
+        width: 50px;
+        padding-top: 50px;
+    }
+    
+    img {
+        height: 100px;
+        width: 100px;
+    }
+    
+    .table_img {
+        width: 120px;
+    }
+    
+    .table_title {
+        width: 630px;
+        
+        p {
+            display: inline;
+            margin-right: 15px;
+        }
+    }
+    
+    .btn_area {
+        width: 93px;
+        padding-top: 40px;
     }
 }
