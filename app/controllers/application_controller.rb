@@ -10,8 +10,9 @@ class ApplicationController < ActionController::Base
   protected
   
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :first_name, :last_name, :birthday, :role])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:username, :first_name, :last_name, :birthday, :role])
+    added_attrs = [:username, :first_name, :last_name, :birthday, :role, :last_time_login]
+    devise_parameter_sanitizer.permit(:sign_up, keys: added_attrs)
+    devise_parameter_sanitizer.permit(:account_update, keys: added_attrs)
   end
   
   def user_not_authorized

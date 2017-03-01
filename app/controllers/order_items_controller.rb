@@ -10,7 +10,7 @@ class OrderItemsController < ApplicationController
     unless current_user.orders.where(order_status_id: 1).empty?
       order = current_user.orders.where(order_status_id: 1).first
     else
-      order = current_user.orders.create(order_status_id: 1)
+      order = current_user.orders.create(order_status_id: 1, tax: 0.08)
     end
     
     @item = Item.where(slug: params[:item_id]).first
@@ -41,8 +41,10 @@ class OrderItemsController < ApplicationController
     end
     
     def update_order_total_price(order, item)
-      total = order.order_total
-      total += item.total_price
-      order.update(order_total: total)
+      item_sun = order.item_total
+      item_sun += item.total_price
+      total_sun = item_sun + (item_sun * order.tax) + order.shipping
+      
+      order.update(item_total: item_sun, order_total: total_sun)
     end
 end

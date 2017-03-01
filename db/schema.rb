@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170227233852) do
+ActiveRecord::Schema.define(version: 20170301011937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,10 @@ ActiveRecord::Schema.define(version: 20170227233852) do
     t.decimal  "price",       precision: 10, scale: 2, default: "0.0", null: false
     t.integer  "status",                               default: 0,     null: false
     t.string   "slug"
+    t.decimal  "weight",      precision: 10, scale: 2, default: "0.0"
+    t.decimal  "width",       precision: 10, scale: 2, default: "0.0"
+    t.decimal  "height",      precision: 10, scale: 2, default: "0.0"
+    t.decimal  "length",      precision: 10, scale: 2, default: "0.0"
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
     t.index ["slug"], name: "index_items_on_slug", unique: true, using: :btree
     t.index ["title"], name: "index_items_on_title", unique: true, using: :btree
@@ -138,6 +142,7 @@ ActiveRecord::Schema.define(version: 20170227233852) do
     t.date     "birthday"
     t.string   "slug"
     t.integer  "role",                   default: 0,  null: false
+    t.date     "last_time_login"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree

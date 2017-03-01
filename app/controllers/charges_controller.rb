@@ -1,11 +1,16 @@
 class ChargesController < ApplicationController
 
   def new
-    @stripe_btn_data = {
-      key: "#{ Rails.configuration.stripe[:publishable_key] }",
-      description: "Kim-Store Shooper - #{current_user.username}",
-      amount: real_amount(current_user.orders.where(order_status_id: 1).first.order_total)
-    }
+    unless current_user.orders.where(order_status_id: 1).empty?
+      @stripe_btn_data = {
+        key: "#{ Rails.configuration.stripe[:publishable_key] }",
+        description: "Kim-Store Shooper - #{current_user.username}",
+        amount: real_amount(current_user.orders.where(order_status_id: 1).first.order_total)
+      }
+    else
+      flash[:alert] = "There's no product in your cart."
+      redirect_to :back
+    end
   end
   
   def create
