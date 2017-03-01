@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170301020541) do
+ActiveRecord::Schema.define(version: 20170301065520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,15 @@ ActiveRecord::Schema.define(version: 20170301020541) do
     t.index ["slug"], name: "index_items_on_slug", unique: true, using: :btree
     t.index ["title"], name: "index_items_on_title", unique: true, using: :btree
     t.index ["user_id"], name: "index_items_on_user_id", using: :btree
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string   "title",      null: false
+    t.string   "body",       null: false
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -173,6 +182,7 @@ ActiveRecord::Schema.define(version: 20170301020541) do
   end
 
   add_foreign_key "items", "categories"
+  add_foreign_key "messages", "users"
   add_foreign_key "order_items", "items"
   add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "order_statuses"

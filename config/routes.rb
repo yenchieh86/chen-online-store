@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   get '/help', to: 'static_pages#help'
-  get '/contect', to: 'static_pages#contect'
+  
   get '/control_target/target_product_list/:id', to: 'control_target#target_product_list', as: 'target_product_list'
   get '/control_target/target_wish_list/:id', to: 'control_target#target_wish_list', as: 'target_wish_list'
   get '/control_target/target_review_list/:id', to: 'control_target#target_review_list', as: 'target_review_list'
@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   
   resources :order_items, only: [:index, :show, :edit, :update, :show, :destroy]
   resources :searches, only: [:index]
+  resources :messages
   
   root 'static_pages#home'
 
