@@ -5,7 +5,6 @@ class Item < ApplicationRecord
   include PgSearch
   multisearchable :against => [:title, :body], :using => { :tsearch => {:dictionary => "english"} }
   
-  accepts_nested_attributes_for :photos, reject_if: :all_blank, allow_destroy: true
   
   belongs_to :user
   belongs_to :category
@@ -13,6 +12,7 @@ class Item < ApplicationRecord
   has_many :order_items
   has_many :wish_lists
   has_many :photos, dependent: :destroy
+  accepts_nested_attributes_for :photos, reject_if: :all_blank, allow_destroy: true
   
   validates :title, presence: true
   validates :body, presence: true
