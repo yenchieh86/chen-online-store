@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable
          
+  before_save :capitalize_name
+         
   extend FriendlyId
   friendly_id :username, use: :slugged
   
@@ -15,5 +17,12 @@ class User < ApplicationRecord
   has_many :wish_lists, dependent: :destroy
   has_many :orders
   has_many :order_items, through: :orders
+  
+  private
+  
+    def capitalize_name
+      self.first_name = first_name.capitalize
+      self.last_name = last_name.capitalize
+    end
   
 end
