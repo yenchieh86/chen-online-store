@@ -29,6 +29,7 @@ gem 'friendly_id'
 gem 'gravatar_image_tag'
 gem 'cocoon'
 gem 'stripe'
+gem 'daemons'
 
 group :development, :test do
   gem 'byebug', platform: :mri
