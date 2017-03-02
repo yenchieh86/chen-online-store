@@ -2,9 +2,8 @@ class Item < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
   
-  include PgSearch
-  multisearchable :against => [:title, :body], :using => { :tsearch => {:dictionary => "english"} }
-  
+  validates :title, presence: true
+  validates :body, presence: true
   
   belongs_to :user
   belongs_to :category
@@ -14,8 +13,10 @@ class Item < ApplicationRecord
   has_many :photos, dependent: :destroy
   accepts_nested_attributes_for :photos, reject_if: :all_blank, allow_destroy: true
   
-  validates :title, presence: true
-  validates :body, presence: true
+  
   
   enum status: [:off_shelf, :on_shelf, :special_offer]
+  
+  include PgSearch
+  pg_search_scope :search_by_title, :against => :title
 end

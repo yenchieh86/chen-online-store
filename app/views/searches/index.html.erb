@@ -21,6 +21,9 @@
                             Button
                         </td>
                     </tr>
+                    <% if @items.empty? %>
+                    No item
+                    <% end %>
                     <% @items.each_with_index do |item, index| %>
                         <tr>
                             <th class='text-center table_index'>

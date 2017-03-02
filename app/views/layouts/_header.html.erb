@@ -1,26 +1,55 @@
-<div class='row'>
-    <div class='navbar'>
-        <div class='logo' >
-            <%= link_to image_tag("logo.jpg"), root_path %>
+<div class='container-fluid'>
+    <div class='header'>
+        <div class='row'>
+            <div class='col-md-1'>
+                <%= link_to image_tag('logo.jpg', class: 'img-responsive', alt: 'Responsive image'), root_path %>
+            </div>
+            <div class='col-md-3'>
+                <h1>Kim's Store</h1>
+            </div>
+            <div class='col-md-3 col-md-offset-5'>
+                <div class=' nav_area'>
+                    <ul class='nav nav-pills'>
+                        <li role='presentation' class='dropdown'>
+                            <%= link_to 'Account', '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' } %>
+                            <ul class='dropdown-menu' id='account'>
+                                <% unless current_user %>
+                                    <li>
+                                        <%= link_to 'Sign Up', root_path %>
+                                    </li>
+                                    <li>
+                                        <%= link_to 'Sign In', root_path %>
+                                    </li>
+                                <% else %>
+                                    <li>
+                                        <%= link_to 'Orders', root_path %>
+                                    </li>
+                                    <li>
+                                        <%= link_to 'Setting', root_path %>
+                                    </li>
+                                <% end %>
+                            </ul>
+                        </li>
+                        <li role='presentation' class='dropdown'>
+                            <%= link_to 'Help', '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' } %>
+                            <ul class='dropdown-menu' id='help'>
+                                <li>
+                                    <%= link_to 'About Us', root_path %>
+                                </li>
+                                <li>
+                                    <%= link_to 'Contact Us', root_path %>
+                                </li>
+                                <li>
+                                    <%= link_to 'Help', '#' %>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <%= bootstrap_form_tag url: searches_path, method: :get do |f| %>
+                        <%= f.text_field :query, hide_label: true,  icon: 'search', layout: :inline, control_class: 'glyphicon glyphicon-search' %>
+                    <% end %>
+                </div>
+            </div>
         </div>
-        <div class='searching-area'>
-            <%= form_tag searches_path, method: :get do %>
-                <%= text_field_tag :query, params[:query] %>
-                <%= submit_tag 'Search', name: nil %>
-            <% end %>
-        </div>
-        <ul class="nav navbar-nav">
-            <% if current_user %>
-                <li><%= link_to gravatar_image_tag(current_user.email), current_user, class: 'nav_gravatar' %></li>
-            <% end %>
-            <li><%= link_to "Home", root_path, class: 'home' %></li>
-            <li><%= link_to "Help", help_path, class: 'help' %></li>
-            <% if current_user %>
-                <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'logout' %></li>
-            <% else %>
-                <li><%= link_to 'Sign in', new_user_session_path, class: 'signin' %></li>
-                <li><%= link_to 'Sign up', new_user_registration_path, class: 'signup' %></li>
-            <% end %>
-        </ul>
     </div>
 </div>

@@ -16,3 +16,35 @@
 //= require turbolinks
 //= require_tree .
 //= require cocoon
+
+$(document).ready(function(){
+    
+    function dropDown() {
+        if ($(window).width() > 767) {
+            $('.nav-pills .dropdown').on('mouseover', function(){
+                $('.dropdown-toggle', this).closest('a').css({ 'background-color': 'rgb(240,30,30)', 'color': 'white'});
+                $('.dropdown-toggle', this).next('.dropdown-menu').show();
+            });
+            
+            $('.nav-pills .dropdown').on('mouseout', function(){
+                $('.dropdown-toggle', this).closest('a').css({ 'background-color': 'white', 'color': 'rgb(0,130,255)'});
+                $('.dropdown-toggle', this).next('.dropdown-menu').hide();
+            });
+            
+            $('.dropdown-toggle').click(function() {
+                if ($(this).next('.dropdown-menu').is(':visible')) {
+                    window.location = $(this).attr('href');
+                }
+            });
+        }
+        else {
+            $('.nav-pills .dropdown').off('mouseover').off('mouseout');
+        }
+    }
+    
+    $(window).resize(function() {
+        dropDown();
+    }) ;
+    
+    dropDown();
+});
