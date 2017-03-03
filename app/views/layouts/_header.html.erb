@@ -5,42 +5,45 @@
                 <%= link_to image_tag('logo.jpg', class: 'img-responsive', alt: 'Responsive image'), root_path %>
             </div>
             <div class='col-md-3'>
-                <h1>Kim's Store</h1>
+                <h1 >Kim's Store</h1>
             </div>
             <div class='col-md-3 col-md-offset-5'>
                 <div class=' nav_area'>
                     <ul class='nav nav-pills'>
                         <li role='presentation' class='dropdown'>
-                            <%= link_to 'Account', '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' } %>
+                            <%= link_to 'Account', current_user, class: 'dropdown-toggle' %>
                             <ul class='dropdown-menu' id='account'>
                                 <% unless current_user %>
                                     <li>
-                                        <%= link_to 'Sign Up', root_path %>
+                                        <%= link_to 'Sign Up', new_user_registration_path %>
                                     </li>
                                     <li>
-                                        <%= link_to 'Sign In', root_path %>
+                                        <%= link_to 'Sign In', new_user_session_path %>
                                     </li>
                                 <% else %>
                                     <li>
-                                        <%= link_to 'Orders', root_path %>
+                                        <%= link_to 'Orders', shopping_cart_path(current_user) %>
                                     </li>
                                     <li>
-                                        <%= link_to 'Setting', root_path %>
+                                        <%= link_to 'Setting', current_user %>
+                                    </li>
+                                    <li>
+                                        <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
                                     </li>
                                 <% end %>
                             </ul>
                         </li>
                         <li role='presentation' class='dropdown'>
-                            <%= link_to 'Help', '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' } %>
+                            <%= link_to 'Help', help_path, class: 'dropdown-toggle' %>
                             <ul class='dropdown-menu' id='help'>
                                 <li>
-                                    <%= link_to 'About Us', root_path %>
+                                    <%= link_to 'About Us', about_path %>
                                 </li>
                                 <li>
-                                    <%= link_to 'Contact Us', root_path %>
+                                    <%= link_to 'Contact Us', new_message_path %>
                                 </li>
                                 <li>
-                                    <%= link_to 'Help', '#' %>
+                                    <%= link_to 'Help', help_path %>
                                 </li>
                             </ul>
                         </li>

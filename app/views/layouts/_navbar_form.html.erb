@@ -1,0 +1,10 @@
+<li class='dropdown' role="presentation">
+    <%= link_to objects[0].class.name, '#', class: 'dropdown-toggle' %>
+    <ul class='dropdown-menu'>
+        <% objects.each do |object| %>
+        <li>
+            <%= link_to object.title, category_path(object.id) %>
+        </li>
+        <% end %>
+    </ul>
+</li>

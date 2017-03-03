@@ -1,13 +1,24 @@
 Rails.application.routes.draw do
   
+  
+  devise_for :users
+  root 'static_pages#home'
+  
+  get '/:user_id/shopping_cart', to: 'orders#unpaid_order', as: 'shopping_cart'
   get '/help', to: 'static_pages#help'
+  get '/about', to: 'static_pages#about'
+  
+  
+  
+  
+  
   
   get '/control_target/target_product_list/:id', to: 'control_target#target_product_list', as: 'target_product_list'
   get '/control_target/target_wish_list/:id', to: 'control_target#target_wish_list', as: 'target_wish_list'
   get '/control_target/target_review_list/:id', to: 'control_target#target_review_list', as: 'target_review_list'
   get '/control_target/target_order_list/:id', to: 'control_target#target_order_list', as: 'target_order_list'
   
-  devise_for :users
+  
   resources :users, only: [:index, :show]
   
   resources :user, only: [] do
@@ -35,6 +46,12 @@ Rails.application.routes.draw do
   resources :searches, only: [:index]
   resources :messages
   
-  root 'static_pages#home'
+  
+  
+  
+  
+  
+  
+  
 
 end

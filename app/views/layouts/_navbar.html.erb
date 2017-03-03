@@ -1,16 +1,12 @@
 <div class='container-fluid'>
     <div class='navbar_area'>
         <div class='row'>
-            <div class='col-md-12'>
-                <ul class="nav nav-pills">
-                  <li role="presentation"><%= link_to 'Save Spave' %></li>
-                  <li role="presentation"><%= link_to 'Save Spave' %></li>
-                  <li role="presentation"><%= link_to 'Save Spave' %></li>
-                  <li role="presentation"><%= link_to 'Save Spave' %></li>
-                  <li role="presentation"><%= link_to 'Save Spave' %></li>
-                  <li role="presentation"><%= link_to 'Save Spave' %></li>
+            <div class='col-md-1'>
+                <ul class='nav nav-pills'>
+                    <%= render 'layouts/navbar_form', objects: Category.all %>
                 </ul>
             </div>
         </div>
     </div>
 </div>
+

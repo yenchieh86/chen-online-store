@@ -7,35 +7,52 @@
  *= require rails_bootstrap_forms
 */
 
-
 .header {
     .nav_area {
         float: right;
     }
     
     .dropdown-menu {
-        margin-top: -5px;
+        margin-top: 0px;
+        min-width: 115px;
+        
     }
     
     .form-group {
         margin-bottom: 0px;
+    }
+    
+    .dropdown:hover {
+        .dropdown-menu {
+            display: block;
+        }
+    }
+    
+    .dropdown-toggle:hover {
+        background-color: rgb(240,30,30);
+        color: white;
     }
 }
 
 .navbar_area {
     .row {
         background-color: rgb(200,30,30);
-    
-    
-        li a {
+        
+        .dropdown-toggle {
             color: white;
+        }
+        
+        .dropdown:hover {
             
-            &:hover {
+            
+            .dropdown-toggle {
                 background-color: rgb(240,30,30);
+            }
+            .dropdown-menu {
+                margin-top: 0;
+                display: block;
+                min-width: 70px;
             }
         }
     }
 }
-
-
-
