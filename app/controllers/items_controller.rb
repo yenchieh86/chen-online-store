@@ -1,16 +1,24 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :update, :delete]
+  
   def index
     @items = policy_scope(Item)
   end
 
   def show
-    @item = Item.find(params[:id])
+    @item = Item.friendly.find(params[:id])
   end
 
   def new
-    @item = Item.new
-    @photo = @item.photos.new
-    @categories = Category.all.collect { |c| [c.title, c.id] }
+    unless current_user.admin?
+      flash[:alert] = 'You are not authorize to do that.'
+      redirect_to root_path
+    else
+      @item = Item.new
+      @photo = @item.photos.new
+      @categories = Category.all.collect { |c| [c.title, c.id] }
+    end
+    
   end
   
   def create
@@ -26,8 +34,13 @@ class ItemsController < ApplicationController
   end
   
   def edit
-    @item = Item.find(params[:id])
-    @categories = Category.all.collect { |c| [c.id, c.title] }
+    unless current_user.admin?
+      flash[:alert] = 'You are not authorize to do that.'
+      redirect_to root_path
+    else
+      @item = Item.find(params[:id])
+      @categories = Category.all.collect { |c| [c.id, c.title] }
+    end
   end
   
   def update

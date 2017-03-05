@@ -1,29 +1,32 @@
-<div class='order_items_list'>
-    <tr class='table_label text-center'>
-        <th class='text-center'>
-            <h5><%= index + 1 %></h5>
-        </th>
-        <td>
-            <% unless order_item.item.photos.empty? %> 
-                <%= image_tag(order_item.item.photos.first.image.medium.url) %>
-            <% else %>
-                <%= image_tag("no_img.jpg", size: '100x100') %>
-            <% end %>
-        </td>
-        <td>
-            <h5><%= order_item.item.title %></h5>
-        </td>
-        <td>
-            <h5><%= order_item.unit_price %></h5>
-        </td>
-        <td>
-            <h5><%= order_item.quantity %></h5>
-        </td>
-        <td>
-            <h5><%= order_item.total_price %></h5>
-        </td>
-        <td>
-            <h5>Buttons</h5>
-        </td>
-    </tr>
-</div>
+<tr class='table_label text-center order_items_list'>
+    <th class='text-center table_index'>
+        <h5><%= index + 1 %></h5>
+    </th>
+    <td>
+        <% unless order_item.item.photos.empty? %> 
+            <%= link_to image_tag(order_item.item.photos.first.image.medium.url), item_path(order_item.item) %>
+        <% else %>
+            <%= link_to image_tag("no_img.jpg", size: '100x100'), item_path(order_item.item) %>
+        <% end %>
+    </td>
+    <td class='table_title'>
+        <h5><%= order_item.item.title %></h5>
+    </td>
+    <td class='table_price'>
+        <h5><%= order_item.unit_price %></h5>
+    </td>
+    <td class='table_quantity'>
+        <h5><%= order_item.quantity %></h5>
+    </td>
+    <td class='table_total_price'>
+        <h5><%= order_item.total_price %></h5>
+    </td>
+    <td class='btn_area'>
+        <% unless order_item.order.order_status_id === 1 %>
+            <h3>Paid</h3>
+        <% else %>
+            <%= link_to 'Edit', edit_order_order_item_path(order_item.order_id, order_item), class: 'btn btn-default' %>
+            <%= link_to 'Delete', order_order_item_path(order_item.order_id, order_item), method: :delete, class: 'btn btn-warning' %>
+        <% end %>
+    </td>
+</tr>

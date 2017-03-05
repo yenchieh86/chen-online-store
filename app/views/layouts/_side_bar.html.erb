@@ -1,3 +1,35 @@
-<div class='col-md-2'>
-    <h1>TEST</h1>
+<div class='col-md-2 side_bar'>
+    <div class='row'>
+        <div class='col-md-12 text-center'>
+            <h5>Top Sale Products</h5>
+        </div>
+        <div class='col-md-12'>
+            <table class='table table-bordered top_sale_list'>
+                <% all_items_id_sort_by_sold_number(Item).take(5).each_with_index do |id, index| %>
+                    <tr class='item_list'>
+                        <td class='item_no'>
+                            <%= index + 1 %>
+                        </td>
+                        <td class='item_img text-center'>
+                            <% unless Item.find(id).photos.empty? %> 
+                                <%= link_to image_tag(Item.find(id).photos.first.image.medium.url), item_path(Item.find(id)) %>
+                            <% else %>
+                                <%= link_to image_tag("no_img.jpg", size: '60x60'), item_path(Item.find(id)) %>
+                            <% end %>
+                        </td>
+                    </tr>
+                <% end %>
+            </table>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-12 text-center'>
+            <h4>Advertising Area</h4>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-12 text-center'>
+            <h4>Advertising Area</h4>
+        </div>
+    </div>
 </div>

@@ -1,32 +1,7 @@
 <div class='category_show'>
-    <div class='row'>
-        <div class='col-md-10 col-md-offset-1 text-center'>
-            <h1>&lt<%= @category.title %>&gt's information</h1>
-        </div>
+    <%= render 'layouts/side_bar' %>
+    <div class='col-md-10 text-center'>
+        <h1><%= @category.title %></h1>
+        <%= render 'static_pages/popular_list_form', items: @category.items %>
     </div>
-    <div class='row'>
-        <div class='col-md-10 col-md-offset-1 category_info'>
-            <table class="table table-bordered">
-                <tr>
-                    <th>
-                        Descriptions:
-                    </th>
-                    <td>
-                        <%= @category.body %>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>
-    <div class='row'>
-        <div class='col-md-12 text-center'>
-            <h2>List of Items</h2>
-        </div>
-    </div>
-    <div class='row'>
-        <div class='col-md-10 col-md-offset-1 text-center create_button'>
-            <%= link_to 'Add item to this categories', new_item_path, class: 'btn btn-success' %>
-        </div>
-    </div>
-    <%= render 'categories_items_list', items: @category.items %>
 </div>

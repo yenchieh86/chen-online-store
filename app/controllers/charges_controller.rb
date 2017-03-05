@@ -1,4 +1,5 @@
 class ChargesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
 
   def new
     unless current_user.orders.where(order_status_id: 1).empty?

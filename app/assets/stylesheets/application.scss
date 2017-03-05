@@ -56,3 +56,146 @@
         }
     }
 }
+
+.side_bar {
+    .top_sale_list {
+        .item_no {
+            width: 5%;
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+    }
+}
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    margin: 0 auto;
+}
+
+.carousel-indicators {
+    margin-bottom: -20px;
+}
+
+.carousel-caption {
+    margin-bottom: -40px;
+}
+
+.home_main_content {
+    .middle_advertising {
+        margin-top: 10px;
+        
+        .mid_abel {
+            border: 1px solid black;
+            
+            li a{
+                border: 8px 15px;
+            }
+        }
+        
+        #new_arrival,
+        #on_sale,
+        #most_popular {
+            border: 1px solid black;
+            border-top: none;
+            padding: 10px 15px;
+        }
+        
+        #new_arrival_more,
+        #on_sale_more,
+        #new_arrival,
+        #on_sale {
+            display: none;
+        }
+        
+        .more_btn {
+            float: right;
+            position: absolute;
+            bottom: 0;
+            right: 10px;
+        }
+        
+    }
+    
+    .home_category {
+        .category_title {
+            border: 1px solid black;
+            margin-top: 10px;
+        }
+        
+        .popular_form {
+            border: 1px solid black;
+            border-top: none;
+            padding: 10px 15px;
+        }
+        
+        .more_btn {
+            float: right;
+            position: absolute;
+            bottom: 0;
+            right: 10px;
+        }
+    }
+}
+
+.item_show {
+    margin-top: 10px;
+    
+    .btn_area {
+        .btn {
+            width: 130px;
+            margin-bottom: 10px;
+        }
+    }
+    
+    .order_items_form {
+        .form-control {
+            width: 30%;
+        }
+    }
+    
+    
+}
+
+.popular_list_form {
+    .item_area {
+        border: 1px solid black;
+        margin: 16px;
+        
+    }
+}
+
+
+.orders_list {
+    .btn {
+        width: 65px;
+    }
+}
+
+.order_show {
+    .order_items_list {
+        .table_title,
+        .table_price,
+        .table_quantity,
+        .table_total_price,
+        .table_index {
+            padding: 40px 0;
+        }
+    
+    .table_index {
+        width: 50px;
+    }
+    
+    .table_quantity {
+        width: 80px;
+    }
+    
+    .btn_area {
+        width: 70px;
+    }
+    
+        .btn {
+            width: 65px;
+            margin-bottom: 8px;
+        }
+    }
+}

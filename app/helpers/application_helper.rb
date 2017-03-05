@@ -31,4 +31,50 @@ module ApplicationHelper
     total
   end
   
+  def all_objects(class_name)
+    @objects = class_name.all
+  end
+  
+  def find_all_objects_by_id(ids, class_name)
+    @objects = Array.new
+    
+    ids.each do |id|
+      @objects.push(class_name.find(id))
+    end
+    
+    @objects
+  end
+  
+  def all_items_id_sort_by_sold_number(class_name)
+    list = Array.new
+    
+    class_name.all.each do |item|
+      sum = item_total_sell(item)
+      list.push([item.id, sum])
+    end
+    
+    list = list.sort_by { |t| t[1].to_i }.reverse
+    sold_rank = Array.new
+    
+    list.each do |i|
+      sold_rank.push(i[0])
+    end
+    sold_rank
+  end
+  
+  def all_items_sort_by_created_date(class_name)
+    newarrival_list = class_name.all
+    newarrival_list = newarrival_list.sort_by { |t| t.created_at.to_i }.reverse
+  end
+  
+  def item_average_rating(item)
+    unless item.reviews.count > 0
+      total = 0
+    else
+      total = 0
+      item.reviews.each { |review| total += review.rating }
+      total = total / item.reviews.count
+    end
+  end
+    
 end

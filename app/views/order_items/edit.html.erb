@@ -1,2 +1,29 @@
-<h1>OrderItems#edit</h1>
-<p>Find me in app/views/order_items/edit.html.erb</p>
+<%= render 'layouts/side_bar' %>
+<div class='col-md-10 text-center'>
+    <h3>Please change your order quantity</h3>
+    <div class='row'>
+        <div class='col-md-12'>
+             <% unless @order_item.item.photos.empty? %> 
+                <%= link_to image_tag(@order_item.item.photos.first.image.medium.url), item_path(@order_item.item) %>
+            <% else %>
+                <%= link_to image_tag("no_img.jpg", size: '100x100'), item_path(@order_item.item) %>
+            <% end %>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-10 col-md-offset-1 text-center'>
+            <h4><%= @order_item.item.title %></h4>
+            <h4><%= @order_item.item.price %></h4>
+            <h4><%= @order_item.item.quantity %></h4>
+        </div>
+    </div>
+    
+    <div class='row'>
+        <div class='col-md-12 text-center'>
+            <%= form_for (@order_item), url: { action: 'update' }  do |f| %>
+                <%= f.number_field :quantity %>
+                <%= f.submit "Chagne", class: 'btn btn-info' %>
+            <% end %>
+        </div>
+    </div>
+</div>

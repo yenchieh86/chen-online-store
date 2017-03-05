@@ -1,6 +1,44 @@
-<div class='col-md-2'>
-    <%= render 'layouts/side_bar' %>
-</div>
+<%= render 'layouts/side_bar' %>
 <div class='col-md-10'>
-    <h1>Welcom to Kim's Store</h1>
+    <div class='home_main_content'>
+        <div class='row'>
+            <div class='col-md-9 main_advertising'>
+                <div id='carousel-example-generic' class='carousel slide' data-ride='carousel'>
+                    <ol class='carousel-indicators'>
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <%= image_tag("no_img.jpg", size: '200x200') %>
+                            <div class="carousel-caption">
+                                <h3>test1</h3>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <%= image_tag("no_img.jpg", size: '200x200') %>
+                            <div class="carousel-caption">
+                                <h3>test2</h3>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <%= image_tag("no_img.jpg", size: '200x200') %>
+                            <div class="carousel-caption">
+                                <h3>test3</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='col-md-3'>
+                <h1>Advertising Area</h1>
+            </div>
+        </div>
+        <%= render 'static_pages/list_form' %>
+        
+        <% Category.all.each do |type| %>
+            <%= render 'static_pages/home_category', object: type %>
+        <% end %>
+    </div>
 </div>

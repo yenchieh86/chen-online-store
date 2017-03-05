@@ -1,5 +1,8 @@
-<%= form_tag user_charges_path(current_user) do %>
-    <h2>Click the button!</h2>
-    
-    <script class='stripe-button' src="https://checkout.stripe.com/checkout.js" data-key="<%= @stripe_btn_data[:key] %>" data-amount="<%= @stripe_btn_data[:amount] %>" data-description="<%= @stripe_btn_data[:description] %>" ></script>
-<% end %>
+<%= render 'layouts/side_bar' %>
+<div class='col-md-10'>
+    <%= form_tag user_charges_path(current_user) do %>
+        <h2>Click the button!</h2>
+        
+        <script class='stripe-button' src="https://checkout.stripe.com/checkout.js" data-key="<%= @stripe_btn_data[:key] %>" data-amount="<%= @stripe_btn_data[:amount] %>" data-description="<%= @stripe_btn_data[:description] %>" ></script>
+    <% end %>
+</div>

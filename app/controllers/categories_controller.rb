@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :check_title, only: [:create, :update, :delete]
+  before_action :authenticate_user!, only: [:create, :update, :delete]
   
   def index
     @categories = Category.all
@@ -10,7 +11,12 @@ class CategoriesController < ApplicationController
   end
 
   def new
-    @category = Category.new
+    unless current_user.admin?
+      flash[:alert] = 'You are not authorize to do that.'
+      redirect_to root_path
+    else
+      @category = Category.new
+    end
   end
   
   def create
@@ -26,7 +32,12 @@ class CategoriesController < ApplicationController
   end
 
   def edit
-    @category = Category.find(params[:id])
+    unless current_user.admin?
+      flash[:alert] = 'You are not authorize to do that.'
+      redirect_to root_path
+    else
+      @category = Category.find(params[:id])
+    end
   end
   
   def update

@@ -1,6 +1,6 @@
-<div class='orders_list'>
-    <% user.orders.each_with_index do |order, index| %>
-        <tr class='table_label text-center'>
+<% user.orders.each_with_index do |order, index| %>
+    <div>
+        <tr class='table_label text-center orders_list'>
             <th class='text-center'>
                 <h5><%= index + 1%></h5>
             </th>
@@ -16,9 +16,12 @@
             <td>
                 <h5><%= order.order_status.title %></h5>
             </td>
-            <td>
+            <td class='btn_area'>
+                <% if order.order_status_id === 1 %>
+                    <%= link_to 'Pay', new_user_charge_path(current_user), class: 'btn btn-warning' %>
+                <% end %>
                 <%= link_to 'Detail', user_order_path(user, order), class: 'btn btn-default' %>
             </td>
         </tr>
-    <% end %>
-</div>
+    </div>
+<% end %>

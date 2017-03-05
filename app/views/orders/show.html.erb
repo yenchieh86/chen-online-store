@@ -1,9 +1,10 @@
-<div class='order_show'>
-    <div class='row'>
-        <div class='col-md-10 col-md-offset-1 text-center'>
-            <h1>Detail for <%= @user.username %>'s Order No.<%= @order.id %></h1>
-        </div>
-    </div>
+<%= render 'layouts/side_bar' %>
+<div class='col-md-10 text-center order_show'>
+    <% unless current_user == @user %>
+        <h1>Detail for <%= @user.username %>'s Order No.<%= @order.id %></h1>
+    <% else %>
+        <h1>Order No.<%= @order.id %></h1>
+    <% end %>
     <div class='row'>
         <div class='col-md-10 col-md-offset-1'>
             <table class='table table-bordered'>

@@ -1,0 +1,9 @@
+<div class='home_category'>
+    <div class='row'>
+        <div class='col-md-12 category_title'>
+            <h3><%= object.title %></h3>
+            <%= link_to 'More', category_path(object), class: 'more_btn' %>
+        </div>
+    </div>
+    <%= render 'static_pages/popular_form', name: object.title, objects: object.items %>
+</div>

@@ -10,4 +10,10 @@
             <h4><%= notice %></h4>
         </div>
     </div>
+<% elsif flash[:warning] %>
+    <div class='row  bg-info'>
+        <div class='col-md-12'>
+            <h4><%= flash[:warning] %></h4>
+        </div>
+    </div>
 <% end %>

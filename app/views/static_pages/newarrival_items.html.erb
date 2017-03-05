@@ -1,0 +1,9 @@
+<%= render 'layouts/side_bar' %>
+<div class='newarrival_items_page'>
+    <div class='col-md-10'>
+        <h1 class='text-center'>
+            New Arrival
+        </h1>
+        <%= render 'static_pages/popular_list_form', items: all_items_sort_by_created_date(Item) %>
+    </div>
+</div>

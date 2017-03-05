@@ -1,14 +1,15 @@
+<%= render 'layouts/side_bar' %>
 <div class='item_show'>
-    <div class='row'>
-        <div class='col-md-10 col-md-offset-1'>
-            <div class='col-md-5 text-right'>
+    <div class='col-md-10'>
+        <div class='row'>
+            <div class='col-md-5 text-center'>
                 <% unless @item.photos.empty? %> 
                     <%= image_tag(@item.photos[0].image.url, class: 'product_img') %>
                 <% else %>
-                    <%= image_tag("no_img.jpg", size: '420x420') %>
+                    <%= image_tag("no_img.jpg", size: '350x350') %>
                 <% end %>
             </div>
-            <div class='col-md-5'>
+            <div class='col-md-6 col-md-offset-1'>
                 <h6>Category: <%= link_to "<#{@item.category.title}>", '#' %></h6>
                 <h3><%= @item.title %></h3>
                 <h3>Price: $<%= @item.price%></h3>
@@ -22,22 +23,27 @@
                 <div class='sold_review_area'>
                     <p>Sold: <%= item_total_sell(@item) %>, Reviews: <%= @item.reviews.count %>, Rating : <%= average_rating(@item) %>, Wishing: <%= @item.wish_lists.count %></p>
                 </div>
-                
                 <div class='btn_area'>
                     <%= render 'order_items/form', order_item: @item.order_items.new, item: @item %>
                     <%= link_to 'Add to Wish List', [@item, WishList.new], method: :post, class: 'btn btn-info'%>
+                    <% if current_user %>
+                        <% if current_user.admin? %>
+                            <%= link_to 'Edit', edit_item_path(@item), class: 'btn btn-warning' %>
+                        <% end %>
+                    <% end %>
+                    
                 </div>
             </div>
         </div>
-    </div>
-    <div class='row'>
-        <div class='col-md-10 col-md-offset-1 text-center'>
-            <h3>Description</h3>
+        <div class='row'>
+            <div class='col-md-10 col-md-offset-1 text-center'>
+                <h3>Description</h3>
+            </div>
         </div>
-    </div>
-    <div class='row'>
-        <div class='col-md-10 col-md-offset-1'>
-            <%= @item.body %>
+        <div class='row'>
+            <div class='col-md-10 col-md-offset-1'>
+                <%= @item.body %>
+            </div>
         </div>
     </div>
 </div>

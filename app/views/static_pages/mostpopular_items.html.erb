@@ -1,0 +1,9 @@
+<%= render 'layouts/side_bar' %>
+<div class='mostpopular_items_page'>
+    <div class='col-md-10'>
+        <h1 class='text-center'>
+            Top Sale
+        </h1>
+        <%= render 'static_pages/popular_list_form', items: find_all_objects_by_id(all_items_id_sort_by_sold_number(Item), Item) %>
+    </div>
+</div>

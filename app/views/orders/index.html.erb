@@ -1,34 +1,34 @@
 <div class='orders_index'>
-    <div class='row'>
-        <div class='col-md-10 col-md-offset-1 text-center'>
-            <h1><%= current_user.username %>'s Order History</h1>
-        </div>
-    </div>
-    <div class='row'>
-        <div class='col-md-10 col-md-offset-1'>
-            <table class="table table-bordered">
-                <tr class='table_label text-center'>
-                    <th class='text-center'>
-                        <h5>No</h5>
-                    </th>
-                    <td>
-                        <h5>Item #</h5>
-                    </td>
-                    <td>
-                        <h5>Quantity #</h5>
-                    </td>
-                    <td>
-                        <h5>Price #</h5>
-                    </td>
-                    <td>
-                        <h5>Order Status</h5>
-                    </td>
-                    <td>
-                        <h5>Buttons</h5>
-                    </td>
-                </tr>
-                <%= render 'orders/orders_list', user: current_user %>
-            </table>
+    <%= render 'layouts/side_bar' %>
+        <div class='col-md-10 text-center'>
+            <h1><%= current_user.username %>'s order list</h1>
+            <div class='row'>
+                <div class='col-md-10 col-md-offset-1'>
+                    <table class="table table-bordered">
+                        <tr class='table_label text-center'>
+                            <th class='text-center'>
+                                <h5>No</h5>
+                            </th>
+                            <td>
+                                <h5>Item #</h5>
+                            </td>
+                            <td>
+                                <h5>Quantity #</h5>
+                            </td>
+                            <td>
+                                <h5>Price #</h5>
+                            </td>
+                            <td>
+                                <h5>Order Status</h5>
+                            </td>
+                            <td>
+                                <h5>Buttons</h5>
+                            </td>
+                        </tr>
+                        <%= render 'orders/orders_list', user: current_user %>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </div>

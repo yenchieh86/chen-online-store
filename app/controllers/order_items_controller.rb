@@ -1,4 +1,6 @@
 class OrderItemsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :update, :delete]
+  
   def index
   end
 
@@ -9,10 +11,6 @@ class OrderItemsController < ApplicationController
     
     unless current_user.orders.where(order_status_id: 1).empty?
       order = current_user.orders.where(order_status_id: 1).first
-      
-      
-      
-        
     else
       order = current_user.orders.create(order_status_id: 1, tax: 0.08)
     end
@@ -40,6 +38,41 @@ class OrderItemsController < ApplicationController
   end
 
   def edit
+    @order_item = OrderItem.find(params[:id])
+  end
+  
+  def update
+    @order_item = OrderItem.find(params[:id])
+    
+    unless current_user.admin? || current_user.id === @order_item.order.user.id
+      flash[:alert] = "You can't delete other people's order."
+      redirect_to root_path
+    else
+      if @order_item.update(order_item_params)
+        flash[:warning] = 'Your have change your order'
+        redirect_to user_order_path(current_user, @order_item.order)
+      else
+        flash[:alert] = @order_item.errors.full_messages
+        render user_order_path(current_user, @order_item.order)
+      end
+    end  
+  end
+  
+  def destroy
+    @order_item = OrderItem.find(params[:id])
+    
+    unless current_user.admin? || current_user.id === @order_item.order.user.id
+      flash[:alert] = "You can't delete other people's order."
+      redirect_to root_path
+    else
+      if @order_item.destroy
+        flash[:warning] = 'Your have canceled your order'
+        redirect_to user_order_path(current_user, @order_item.order)
+      else
+        flash[:alert] = @order_item.errors.full_messages
+        render user_order_path(current_user, @order_item.order)
+      end
+    end
   end
   
   private
