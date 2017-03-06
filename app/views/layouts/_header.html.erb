@@ -11,7 +11,11 @@
                 <div class=' nav_area'>
                     <ul class='nav nav-pills'>
                         <li role='presentation' class='dropdown'>
-                            <%= link_to 'Account', current_user, class: 'dropdown-toggle' %>
+                            <% unless current_user %>
+                                <%= link_to 'Account', new_user_session_path, class: 'dropdown-toggle' %>
+                            <% else %>
+                                <%= link_to 'Account', current_user, class: 'dropdown-toggle' %>
+                            <% end %>
                             <ul class='dropdown-menu'>
                                 <% unless current_user %>
                                     <li>

@@ -1,4 +1,5 @@
-<div class='user_show_page'>
+<%= render 'layouts/side_bar' %>
+<div class='col-md-10 user_show_page'>
     <div class='row user_info_area'>
         <div class='col-md-6 user_img text-right'>
             <%= gravatar_image_tag(current_user.email, gravatar: { size: 235 } ) %>
@@ -12,26 +13,23 @@
             <%= link_to "Cancel account", user_registration_path, method: :delete, class: 'btn btn-danger' %>
         </div>
     </div>
-    <div class='row'>
-        <div class='col-md-10 col-md-offset-1 user_show_controllpanel'>
-            <% if current_user.admin? %>
-                <%= link_to "All Users", users_path, class: 'btn btn-default col-md-2' %>
-                <%= link_to "Categories", categories_path, class: 'btn btn-default col-md-2' %>
-            <% end %>
-            <% if current_user.seller? || current_user.admin? %>
-                <%= link_to "Products", user_items_path(current_user), class: 'btn btn-default col-md-2' %>
-            <% end %>
-            
-            <%= link_to "Order History", user_orders_path(current_user), class: 'btn btn-default col-md-2' %>
-            <%= link_to "Pay for Orders", new_user_charge_path(current_user), class: 'btn btn-default col-md-2' %>
-            <%= link_to "Save space", '#', class: 'btn btn-default col-md-2' %>
-            <%= link_to "Save space", '#', class: 'btn btn-default col-md-2' %>
-            <%= link_to "Save space", '#', class: 'btn btn-default col-md-2' %>
-            <%= link_to "Save space", '#', class: 'btn btn-default col-md-2' %>
-            <%= link_to "Save space", '#', class: 'btn btn-default col-md-2' %>
-            <%= link_to "Save space", '#', class: 'btn btn-default col-md-2' %>
-            <%= link_to "Save space", '#', class: 'btn btn-default col-md-2' %>
-            <%= link_to "Save space", '#', class: 'btn btn-default col-md-2' %>
+    <div class='row btn_area'>
+        <% if current_user.admin? %>
+            <div class='col-md-2'>
+                <%= link_to "All Users", users_path, class: 'btn btn-default' %>
+            </div>
+            <div class='col-md-2'>
+                <%= link_to "Categories", categories_path, class: 'btn btn-default' %>
+            </div>
+            <div class='col-md-2'>
+                <%= link_to "Products", user_items_path(current_user), class: 'btn btn-default' %>
+            </div>
+        <% end %>
+        <div class='col-md-2'>
+            <%= link_to "Order List", user_orders_path(current_user), class: 'btn btn-default' %>
+        </div>
+        <div class='col-md-2'>
+            <%= link_to "Pay for Orders", new_user_charge_path(current_user), class: 'btn btn-default' %>
         </div>
     </div>
 </div>

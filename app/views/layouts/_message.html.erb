@@ -1,19 +1,19 @@
 <% if alert %>
     <div class='row bg-danger'>
         <div class='col-md-12'>
-            <h4><%= alert %></h4>
+            <h4 class='message'><%= alert %></h4>
         </div>
     </div>
 <% elsif notice %>
     <div class='row  bg-info'>
         <div class='col-md-12'>
-            <h4><%= notice %></h4>
+            <h4 class='message'><%= notice %></h4>
         </div>
     </div>
 <% elsif flash[:warning] %>
     <div class='row  bg-info'>
         <div class='col-md-12'>
-            <h4><%= flash[:warning] %></h4>
+            <h4 class='message'><%= flash[:warning] %></h4>
         </div>
     </div>
 <% end %>

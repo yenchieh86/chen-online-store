@@ -34,9 +34,18 @@
     }
 }
 
+.message {
+    padding: 0 10px;
+}
+
 .navbar_area {
     .row {
         background-color: rgb(200,30,30);
+        
+        .checkout_btn {
+            float: right;
+            padding: 2px 10px;
+        }
         
         .dropdown-toggle {
             color: white;
@@ -196,6 +205,18 @@
         .btn {
             width: 65px;
             margin-bottom: 8px;
+        }
+    }
+}
+
+.user_show_page {
+    .user_info_area {
+        margin: 10px 0;
+    }
+    
+    .btn_area {
+        a {
+            width: 120px;
         }
     }
 }
