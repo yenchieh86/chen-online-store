@@ -13,7 +13,8 @@ class Item < ApplicationRecord
   has_many :photos, dependent: :destroy
   accepts_nested_attributes_for :photos, reject_if: :all_blank, allow_destroy: true
   
-  
+  scope :top_sale, -> { order(total_sold: :DESC)}
+  scope :new_arrived, -> { order(created_at: :DESC)}
   
   enum status: [:off_shelf, :on_shelf, :special_offer]
   

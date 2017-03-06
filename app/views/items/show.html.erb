@@ -21,7 +21,7 @@
                      <h3 class='in_stock'>In Stock.</h3>
                 <% end %>
                 <div class='sold_review_area'>
-                    <p>Sold: <%= item_total_sell(@item) %>, Reviews: <%= @item.reviews.count %>, Rating : <%= average_rating(@item) %>, Wishing: <%= @item.wish_lists.count %></p>
+                    <p>Sold: <%= @item.total_sold %>, Reviews: <%= @item.reviews.count %>, Rating : <%= @item.average_rating %>, Wishing: <%= @item.wish_lists.count %></p>
                 </div>
                 <div class='btn_area'>
                     <%= render 'order_items/form', order_item: @item.order_items.new, item: @item %>

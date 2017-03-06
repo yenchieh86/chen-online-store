@@ -18,8 +18,8 @@
         </div>
     </div>            
     
-    <%= render 'static_pages/popular_form', name: 'most_popular', objects: find_all_objects_by_id(all_items_id_sort_by_sold_number(Item), Item) %>
-    <%= render 'static_pages/popular_form', name: 'on_sale', objects: Item.all %>
-    <%= render 'static_pages/popular_form', name: 'new_arrival', objects: all_items_sort_by_created_date(Item) %>
+    <%= render 'static_pages/popular_item', name: 'most_popular', objects: Item.top_sale.take(6) %>
+    <%= render 'static_pages/popular_item', name: 'on_sale', objects: Item.all.take(6) %>
+    <%= render 'static_pages/popular_item', name: 'new_arrival', objects: Item.new_arrived.take(6) %>
     
 </div>     

@@ -1,0 +1,32 @@
+<div class='popular_list_item'>
+    <div class='row'>
+        <% items.each_with_index do |item, index| %>
+            <div class='col-md-2 text-center item_area'>
+                <div class='row'>
+                    <div class='col-md-12'>
+                        <h3class=' index'><%= index + 1 %></h3>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-12'>
+                        <% unless item.photos.empty? %> 
+                            <%= link_to image_tag(item.photos[0].image.url, class: 'product_img'), item_path(item) %>
+                        <% else %>
+                            <%= link_to image_tag("no_img.jpg", size: '120x120'), item_path(item)  %>
+                        <% end %>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-12'>
+                        <h5 class='item_title'><%= item.title %></h5>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-12'>
+                        <h5>Price: <%= item.price %></h5>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

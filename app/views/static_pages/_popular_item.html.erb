@@ -1,7 +1,7 @@
 <div class='row'>
-    <div class='col-md-12  popular_form' id= <%= name %>>
+    <div class='col-md-12  popular_item' id= <%= name %>>
         <div class='row'>
-            <% objects.take(6).each do |item| %>
+            <% objects.each do |item| %>
                 <div class='col-md-2 object text-center'>
                     <div class='row'>
                         <div class='col-md-12'>
@@ -19,7 +19,7 @@
                     </div>
                     <div class='row'>
                         <div class='col-md-12'>
-                            <p>Rating: <%= item_average_rating(item) %></p>
+                            <p>Rating: <%= item.average_rating %></p>
                         </div>
                     </div> 
                     <div class='row'>

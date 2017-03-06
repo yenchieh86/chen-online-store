@@ -19,9 +19,6 @@ class StaticPagesController < ApplicationController
   end
   
   def mostpopular_items
-    @items = Array.new
-    all_items_id_sort_by_sold_number(Item).each { |id| @items.push(Item.find(id)) }
-    @items
   end
   
   def onsale
@@ -39,7 +36,6 @@ class StaticPagesController < ApplicationController
   end
   
   def newarrival_items
-    @items = all_items_sort_by_created_date(Item)
   end
   
 end

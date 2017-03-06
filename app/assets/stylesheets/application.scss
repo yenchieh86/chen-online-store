@@ -131,7 +131,7 @@
             margin-top: 10px;
         }
         
-        .popular_form {
+        .popular_item {
             border: 1px solid black;
             border-top: none;
             padding: 10px 15px;
@@ -165,11 +165,16 @@
     
 }
 
-.popular_list_form {
+.popular_list_item {
     .item_area {
         border: 1px solid black;
         margin: 16px;
         
+        .item_title {
+            height: 15px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     }
 }
 

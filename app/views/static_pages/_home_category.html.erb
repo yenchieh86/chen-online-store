@@ -5,5 +5,5 @@
             <%= link_to 'More', category_path(object), class: 'more_btn' %>
         </div>
     </div>
-    <%= render 'static_pages/popular_form', name: object.title, objects: object.items %>
+    <%= render 'static_pages/popular_item', name: object.title, objects: object.items.top_sale.take(6) %>
 </div>

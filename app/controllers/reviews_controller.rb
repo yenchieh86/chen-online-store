@@ -15,8 +15,16 @@ class ReviewsController < ApplicationController
     @review.item_id = item.id
     
     if @review.save
-      flash[:notice] = 'Thank you for your review.'
-      redirect_to root_path
+      item.total_rating += @revire.rating
+      item.total_reviews += 1
+      item.average_rating = (item.total_rating.to_f / item.total_reviews).round(2)
+      if item.save
+        flash[:notice] = 'Thank you for your review.'
+        redirect_to root_path
+      else
+        flash[:alert] = item.errors.full_messages
+        render :back
+      end
     else
       flash[:alert] = @review.errors.full_messages
       render :back

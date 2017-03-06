@@ -25,20 +25,20 @@
                         </td>
                     <% end %>
                 </tr>
-                <% @wish_lists.each_with_index do |wish, index| %>
+                <% @items.each_with_index do |item, index| %>
                     <tr class='wish_area'>
                         <th class='table_index text-center'>
                             <%= index + 1 %>
                         </th>
                         <td class='table_img'>
-                            <% unless wish_item(wish).photos.empty? %> 
-                                <%= image_tag(wish_item(wish).photos.first.image.medium.url) %>
+                            <% unless item.photos.empty? %> 
+                                <%= image_tag(item.photos.first.image.medium.url) %>
                             <% else %>
                                 <%= image_tag("no_img.jpg", size: '100x100') %>
                             <% end %>
                         </td>
                         <td class='table_title'>
-                            <%= wish_item(wish).title%>
+                            <%= item.title%>
                         </td>
                         <td class='table_wish_info'>
                             <strong>Price: #, </strong>
@@ -46,7 +46,7 @@
                         </td>
                         <% unless current_user === @user %>
                             <td class='table_more_info'>
-                                <strong>Created at: <%= (Date.current - wish_item(wish).created_at.to_date).to_i %> days ago</strong>
+                                <strong>Created at: <%= (Date.current - item.created_at.to_date).to_i %> days ago</strong>
                             </td>
                         <% else %>
                             <td class='table_button'>

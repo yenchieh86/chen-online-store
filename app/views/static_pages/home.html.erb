@@ -35,7 +35,7 @@
                 <h1>Advertising Area</h1>
             </div>
         </div>
-        <%= render 'static_pages/list_form' %>
+        <%= render 'static_pages/list_item' %>
         
         <% Category.all.each do |type| %>
             <%= render 'static_pages/home_category', object: type %>

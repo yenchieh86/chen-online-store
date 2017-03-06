@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170302093304) do
+ActiveRecord::Schema.define(version: 20170306195555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,21 +53,25 @@ ActiveRecord::Schema.define(version: 20170302093304) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.string   "title",                                default: "",    null: false
+    t.string   "title",                                   default: "",    null: false
     t.text     "body"
-    t.datetime "created_at",                                           null: false
-    t.datetime "updated_at",                                           null: false
+    t.datetime "created_at",                                              null: false
+    t.datetime "updated_at",                                              null: false
     t.integer  "user_id"
-    t.integer  "quantity",                             default: 0,     null: false
+    t.integer  "quantity",                                default: 0,     null: false
     t.integer  "category_id"
-    t.decimal  "price",       precision: 10, scale: 2, default: "0.0", null: false
-    t.integer  "status",                               default: 0,     null: false
+    t.decimal  "price",          precision: 10, scale: 2, default: "0.0", null: false
+    t.integer  "status",                                  default: 0,     null: false
     t.string   "slug"
-    t.decimal  "weight",      precision: 10, scale: 2, default: "0.0"
-    t.decimal  "width",       precision: 10, scale: 2, default: "0.0"
-    t.decimal  "height",      precision: 10, scale: 2, default: "0.0"
-    t.decimal  "length",      precision: 10, scale: 2, default: "0.0"
-    t.integer  "visit_times",                          default: 0
+    t.decimal  "weight",         precision: 10, scale: 2, default: "0.0"
+    t.decimal  "width",          precision: 10, scale: 2, default: "0.0"
+    t.decimal  "height",         precision: 10, scale: 2, default: "0.0"
+    t.decimal  "length",         precision: 10, scale: 2, default: "0.0"
+    t.integer  "visit_times",                             default: 0
+    t.integer  "total_sold",                              default: 0
+    t.decimal  "average_rating", precision: 2,  scale: 1, default: "0.0"
+    t.integer  "total_ratings",                           default: 0
+    t.integer  "total_reviews",                           default: 0
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
     t.index ["slug"], name: "index_items_on_slug", unique: true, using: :btree
     t.index ["title"], name: "index_items_on_title", unique: true, using: :btree
@@ -108,11 +112,13 @@ ActiveRecord::Schema.define(version: 20170302093304) do
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "order_status_id"
-    t.decimal  "tax",             precision: 10, scale: 2, default: "0.0", null: false
-    t.decimal  "order_total",     precision: 10, scale: 2, default: "0.0", null: false
-    t.datetime "created_at",                                               null: false
-    t.datetime "updated_at",                                               null: false
+    t.decimal  "tax",                 precision: 10, scale: 2, default: "0.0", null: false
+    t.decimal  "order_total",         precision: 10, scale: 2, default: "0.0", null: false
+    t.datetime "created_at",                                                   null: false
+    t.datetime "updated_at",                                                   null: false
     t.integer  "shipping_id"
+    t.decimal  "item_total",          precision: 10, scale: 2, default: "0.0"
+    t.integer  "item_total_quantity"
     t.index ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
     t.index ["shipping_id"], name: "index_orders_on_shipping_id", using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
@@ -154,12 +160,12 @@ ActiveRecord::Schema.define(version: 20170302093304) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                                           default: "",    null: false
+    t.string   "encrypted_password",                              default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                                   default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
@@ -168,18 +174,20 @@ ActiveRecord::Schema.define(version: 20170302093304) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.integer  "failed_attempts",        default: 0,  null: false
+    t.integer  "failed_attempts",                                 default: 0,     null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                                                      null: false
+    t.datetime "updated_at",                                                      null: false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "username"
     t.date     "birthday"
     t.string   "slug"
-    t.integer  "role",                   default: 0,  null: false
+    t.integer  "role",                                            default: 0,     null: false
     t.date     "last_time_login"
+    t.decimal  "total_spend",            precision: 10, scale: 2, default: "0.0"
+    t.integer  "total_orders",                                    default: 0
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree

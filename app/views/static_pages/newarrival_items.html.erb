@@ -4,6 +4,6 @@
         <h1 class='text-center'>
             New Arrival
         </h1>
-        <%= render 'static_pages/popular_list_form', items: all_items_sort_by_created_date(Item) %>
+        <%= render 'static_pages/popular_list_item', items: Item.new_arrived %>
     </div>
 </div>
