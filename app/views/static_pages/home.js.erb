@@ -1,0 +1,7 @@
+$('#home_category_item').append('<%= j render 'static_pages/home_category', class_name: @categories %>')
+<% if @categories.next_page %>
+  $('.pagination').replaceWith('<%= j paginate @categories %>');
+<% else %>
+  $(window).off('scroll');
+  $('.pagination').remove();
+<% end %>

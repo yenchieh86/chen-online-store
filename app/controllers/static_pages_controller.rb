@@ -3,6 +3,12 @@ class StaticPagesController < ApplicationController
 
   def home
       current_user.last_time_login = Date.today if user_signed_in?
+      @categories = Category.all.page params[:page]
+      
+      respond_to do |format|
+        format.html
+        format.js
+      end
   end
   
   def help

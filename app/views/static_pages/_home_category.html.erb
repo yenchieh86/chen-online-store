@@ -1,9 +1,11 @@
 <div class='home_category'>
-    <div class='row'>
-        <div class='col-md-12 category_title'>
-            <h3><%= object.title %></h3>
-            <%= link_to 'More', category_path(object), class: 'more_btn' %>
+    <% class_name.each do |category| %>
+        <div class='row'>
+            <div class='col-md-12 category_title'>
+                <h3><%= category.title %></h3>
+                <%= link_to 'More', category_path(category), class: 'more_btn' %>
+            </div>
         </div>
-    </div>
-    <%= render 'static_pages/popular_item', name: object.title, objects: object.items.top_sale.take(6) %>
+        <%= render 'static_pages/popular_item', name: category.title, objects: category.items.top_sale.take(6) %>
+    <% end %>
 </div>

@@ -37,8 +37,11 @@
         </div>
         <%= render 'static_pages/list_item' %>
         
-        <% Category.all.each do |type| %>
-            <%= render 'static_pages/home_category', object: type %>
-        <% end %>
+        <div id='home_category_item'>
+            <%= render 'static_pages/home_category', class_name: @categories %>
+        </div>
+        <div id='infinite-scrolling'>
+            <%= paginate @categories %>
+        </div>
     </div>
 </div>

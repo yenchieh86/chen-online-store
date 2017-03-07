@@ -1,6 +1,8 @@
 class Item < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
+  include PgSearch
+  pg_search_scope :search_by_title, :against => :title
   
   validates :title, presence: true
   validates :body, presence: true
@@ -17,7 +19,6 @@ class Item < ApplicationRecord
   scope :new_arrived, -> { order(created_at: :DESC)}
   
   enum status: [:off_shelf, :on_shelf, :special_offer]
+  paginates_per 10
   
-  include PgSearch
-  pg_search_scope :search_by_title, :against => :title
 end
