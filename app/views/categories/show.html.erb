@@ -2,6 +2,11 @@
     <%= render 'layouts/side_bar' %>
     <div class='col-md-10 text-center'>
         <h1><%= @category.title %></h1>
-        <%= render 'static_pages/popular_list_item', items: @category.items %>
+        <div id='category_item_list'>
+            <%= render 'static_pages/popular_list_item', items: @items %>
+        </div>
+        <div classd='infinite-scrolling'>
+            <%= paginate @items %>
+        </div>
     </div>
 </div>

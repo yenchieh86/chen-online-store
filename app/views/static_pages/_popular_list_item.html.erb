@@ -3,12 +3,7 @@
         <% items.each_with_index do |item, index| %>
             <div class='col-md-2 text-center item_area'>
                 <div class='row'>
-                    <div class='col-md-12'>
-                        <h3class=' index'><%= index + 1 %></h3>
-                    </div>
-                </div>
-                <div class='row'>
-                    <div class='col-md-12'>
+                    <div class='col-md-12 img'>
                         <% unless item.photos.empty? %> 
                             <%= link_to image_tag(item.photos[0].image.url, class: 'product_img'), item_path(item) %>
                         <% else %>

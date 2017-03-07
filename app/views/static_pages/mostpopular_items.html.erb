@@ -4,6 +4,11 @@
         <h1 class='text-center'>
             Top Sale
         </h1>
-        <%= render 'static_pages/popular_list_item', items: Item.top_sale %>
+        <div id='top_sale_item_list'>
+            <%= render 'static_pages/popular_list_item', items: @items %>
+        </div>
+        <div class='infinite-scrolling'>
+            <%= paginate @items %>
+        </div>
     </div>
 </div>

@@ -25,6 +25,12 @@ class StaticPagesController < ApplicationController
   end
   
   def mostpopular_items
+    
+    @items = Item.top_sale.page params[:page]
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
   
   def onsale
@@ -42,6 +48,12 @@ class StaticPagesController < ApplicationController
   end
   
   def newarrival_items
+    @items = Item.new_arrived.page params[:page]
+    
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
   
 end
