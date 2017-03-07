@@ -1,7 +1,8 @@
-$('#new_arrival_item_list').append('<%= j render 'static_pages/popular_list_item', items: @items %>')
+$('#new_arrival_item_list').append('<%= j render 'items/item_list', items: @items %>')
 <% if @items.next_page %>
   $('.pagination').replaceWith('<%= j paginate @items %>');
 <% else %>
   $(window).off('scroll');
   $('.pagination').remove();
 <% end %>
+

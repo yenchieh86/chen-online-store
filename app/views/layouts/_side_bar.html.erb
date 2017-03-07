@@ -14,7 +14,7 @@
                             <% unless Item.find(id).photos.empty? %> 
                                 <%= link_to image_tag(Item.find(id).photos.first.image.medium.url), item_path(Item.find(id)) %>
                             <% else %>
-                                <%= link_to image_tag("no_img.jpg", size: '60x60'), item_path(Item.find(id)) %>
+                                <%= link_to image_tag("no_img.jpg", size: '120x120'), item_path(Item.find(id)) %>
                             <% end %>
                         </td>
                     </tr>

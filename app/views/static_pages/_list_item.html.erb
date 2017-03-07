@@ -18,6 +18,6 @@
         </div>
     </div>
     <div id='recommend_area'>
-        <%= render 'static_pages/popular_item', id: 'most_popular', name: 'most_popular', objects: Item.top_sale.take(6) %>
+        <%= render 'items/home_page_item_list', id: 'most_popular', name: 'most_popular', objects: Item.top_sale.take(6) %>
     </div>
 </div>     

@@ -124,7 +124,7 @@
             margin-top: 10px;
         }
         
-        .popular_item {
+        .home_page_item_list {
             border: 1px solid black;
             border-top: none;
             padding: 10px 15px;
@@ -158,7 +158,7 @@
     
 }
 
-.popular_list_item {
+.item_list {
     .item_area {
         border: 1px solid black;
         margin: 16px;
@@ -219,6 +219,37 @@
     .btn_area {
         a {
             width: 120px;
+        }
+    }
+}
+
+.orders_index {
+    .orders_list {
+        .table_index {
+            width: 50px;
+        }
+        
+        .table_item_count,
+        .table_item_total_quantity {
+            width: 70px;
+        }
+        
+        .table_item_total_price,
+        .table_order_total {
+            width: 150px;
+        }
+        
+        .order_status {
+            width: 120px;
+        }
+        
+        .btn_area {
+            a {
+                width: 70px;
+                font-size: 80%;
+                padding: 5px;
+                margin: 5px 10px;
+            }
         }
     }
 }

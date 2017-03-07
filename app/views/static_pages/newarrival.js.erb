@@ -1,4 +1,4 @@
 $('#recommend_btn_area').empty();
 $('#recommend_btn_area').append("<%= j link_to 'More', newarrival_items_path, class: 'more_btn', id: 'new_arrival_more' %>");
 $('#recommend_area').empty();
-$('#recommend_area').append("<%= j render 'static_pages/popular_item',id: 'new_arrival', name: 'new_arrival', objects: Item.new_arrived.take(6) %>");
+$('#recommend_area').append("<%= j render 'items/home_page_item_list',id: 'new_arrival', name: 'new_arrival', objects: Item.new_arrived.take(6) %>");

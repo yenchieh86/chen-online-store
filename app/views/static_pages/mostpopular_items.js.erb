@@ -1,4 +1,4 @@
-$('#top_sale_item_list').append('<%= j render 'static_pages/popular_list_item', items: @items %>')
+$('#top_sale_item_list').append('<%= j render 'items/item_list', items: @items %>')
 <% if @items.next_page %>
   $('.pagination').replaceWith('<%= j paginate @items %>');
 <% else %>

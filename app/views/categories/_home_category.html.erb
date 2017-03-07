@@ -6,6 +6,6 @@
                 <%= link_to 'More', category_path(category), class: 'more_btn' %>
             </div>
         </div>
-        <%= render 'static_pages/popular_item', name: category.title, objects: category.items.top_sale.take(6) %>
+        <%= render 'items/home_page_item_list', name: category.title, objects: category.items.top_sale.take(6) %>
     <% end %>
 </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306195555) do
+ActiveRecord::Schema.define(version: 20170307064535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -116,9 +116,9 @@ ActiveRecord::Schema.define(version: 20170306195555) do
     t.decimal  "order_total",         precision: 10, scale: 2, default: "0.0", null: false
     t.datetime "created_at",                                                   null: false
     t.datetime "updated_at",                                                   null: false
-    t.integer  "shipping_id"
+    t.integer  "shipping_id",                                  default: 0
     t.decimal  "item_total",          precision: 10, scale: 2, default: "0.0"
-    t.integer  "item_total_quantity"
+    t.integer  "item_total_quantity",                          default: 0
     t.index ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
     t.index ["shipping_id"], name: "index_orders_on_shipping_id", using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree

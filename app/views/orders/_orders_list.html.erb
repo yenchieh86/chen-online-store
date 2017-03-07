@@ -1,26 +1,38 @@
-<% user.orders.each_with_index do |order, index| %>
+<% user.orders.order_status.each_with_index do |order, index| %>
     <div>
         <tr class='table_label text-center orders_list'>
-            <th class='text-center'>
+            <th class='text-center table_index'>
                 <h5><%= index + 1%></h5>
             </th>
-            <td>
+            <td class='table_item_count'>
                 <h5><%= order.order_items.count %></h5>
             </td>
-            <td>
+            <td class='table_item_total_quantity'>
+                <h5>item_total_quantity</h5>
+            </td>
+            <td class='table_item_total_price'>
                 <h5><%= order.item_total %></h5>
             </td>
-            <td>
+            
+            <td class='table_order_total'>
                 <h5>$ <%= order.order_total %></h5>
             </td>
-            <td>
+            <td class='order_status'>
                 <h5><%= order.order_status.title %></h5>
             </td>
             <td class='btn_area'>
                 <% if order.order_status_id === 1 %>
                     <%= link_to 'Pay', new_user_charge_path(current_user), class: 'btn btn-warning' %>
                 <% end %>
-                <%= link_to 'Detail', user_order_path(user, order), class: 'btn btn-default' %>
+                <% if current_user.admin? %>
+                    <%= link_to 'Placed', chage_order_status_to_placed_path(order), class: 'btn btn-info' %>
+                    <%= link_to 'Shipped', chage_order_status_to_shipped_path(order), class: 'btn btn-info' %>
+                    <%= link_to 'delivered', chage_order_status_to_delivered_path(order), class: 'btn btn-info' %>
+                <% end %>
+                <% if [4, 5].include?(order.order_status_id) || current_user.admin?%>
+                    <%= link_to 'Received', chage_order_status_to_received_path(order), class: 'btn btn-warning' %>
+                <% end %>
+                <%= link_to 'Detail', user_order_path(current_user, order.id), class: 'btn btn-default' %>
             </td>
         </tr>
     </div>

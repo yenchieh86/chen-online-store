@@ -5,7 +5,7 @@
             New Arrival
         </h1>
         <div id='new_arrival_item_list'>
-            <%= render 'static_pages/popular_list_item', items: @items %>
+            <%= render 'items/item_list', items: @items %>
         </div>
         <div class='infinite-scrolling'>
             <%= paginate @items %>
