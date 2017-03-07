@@ -1,6 +1,4 @@
-$('#most_popular').show()
-$('#most_popular_more').show()
-$('#on_sale').hide()
-$('#on_sale_more').hide()
-$('#new_arrival').hide()
-$('#new_arrival_more').hide()
+$('#recommend_btn_area').empty();
+$('#recommend_btn_area').append("<%= j link_to 'More', mostpopular_items_path, class: 'more_btn', id: 'most_popular_more' %>");
+$('#recommend_area').empty();
+$('#recommend_area').append("<%= j render 'static_pages/popular_item', id: 'most_popular', name: 'most_popular', objects: Item.top_sale.take(6) %>");

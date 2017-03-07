@@ -1,9 +1,9 @@
 <div class='middle_advertising'>    
     <div class='row'>
         <div class='col-md-12 text-center mid_abel'>
-            <%= link_to 'More', mostpopular_items_path, class: 'more_btn', id: 'most_popular_more' %>
-            <%= link_to 'More', '#', class: 'more_btn', id: 'on_sale_more' %>
-            <%= link_to 'More', newarrival_items_path, class: 'more_btn', id: 'new_arrival_more' %>
+            <div id='recommend_btn_area'>
+                <%= link_to 'More', mostpopular_items_path, class: 'more_btn', id: 'most_popular_more' %>
+            </div>
             <ul class="nav nav-pills">
                 <li role="presentation" id='most_popular_btn'>
                     <%= link_to 'Most Popular', mostpopular_path, remote: true %>
@@ -11,15 +11,13 @@
                 <li role="presentation">
                     <%= link_to 'On Sale', onsale_path, id:'on_sale_btn', remote: true %>
                 </li>
-                <li role="presentation"id='new_arrival_btn'>
+                <li role="presentation" id='new_arrival_btn'>
                     <%= link_to 'New Arrival', newarrival_path, remote: true %>
                 </li>
             </ul>
         </div>
-    </div>            
-    
-    <%= render 'static_pages/popular_item', name: 'most_popular', objects: Item.top_sale.take(6) %>
-    <%= render 'static_pages/popular_item', name: 'on_sale', objects: Item.all.take(6) %>
-    <%= render 'static_pages/popular_item', name: 'new_arrival', objects: Item.new_arrived.take(6) %>
-    
+    </div>
+    <div id='recommend_area'>
+        <%= render 'static_pages/popular_item', id: 'most_popular', name: 'most_popular', objects: Item.top_sale.take(6) %>
+    </div>
 </div>     
